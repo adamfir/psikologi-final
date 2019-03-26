@@ -19,13 +19,17 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    public function showLoginForm()
+    {
+        return view('login');
+    }
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/reading';
 
     /**
      * Create a new controller instance.
