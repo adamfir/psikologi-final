@@ -64,7 +64,7 @@
                 <h1><b>???</b></h1>
             </div>
             <div class="animateInput">
-                <form action="{{route('reading.pretest.1.postRecall2')}}" method="post">
+                <form action="{{route('reading.pretest.4.postRecall')}}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

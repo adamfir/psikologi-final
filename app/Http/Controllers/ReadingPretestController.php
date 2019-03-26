@@ -39,7 +39,55 @@ class ReadingPretestController extends Controller
         return view('reading.pretest.2.recall');
     }
     
-    // public function postRecall2(){
-    //     return view('reading.pretest.2.recall');
-    // }
+    public function postRecall2(){
+        return redirect('reading/pretest/3/kata');
+    }
+
+    public function kata3(){
+        return view('reading.pretest.3.kata');
+    }
+
+    public function pernyataan3(){
+        return view('reading.pretest.3.pernyataan');
+    }
+
+    public function recall3(){
+        return view('reading.pretest.3.recall');
+    }
+    
+    public function postRecall3(){
+        return redirect('reading/pretest/4/kata');
+    }
+
+    public function kata4(){
+        return view('reading.pretest.4.kata');
+    }
+
+    public function pernyataan4(){
+        return view('reading.pretest.4.pernyataan');
+    }
+
+    public function recall4(){
+        return view('reading.pretest.4.recall');
+    }
+    
+    public function postRecall4(){
+        return redirect('reading/pretest/5/kata');
+    }
+
+    public function kata5(){
+        return view('reading.pretest.5.kata');
+    }
+
+    public function pernyataan5(){
+        return view('reading.pretest.5.pernyataan');
+    }
+
+    public function recall5(){
+        return view('reading.pretest.5.recall');
+    }
+    
+    public function postRecall5(){
+        return redirect('reading/pretest/done');
+    }
 }

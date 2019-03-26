@@ -63,7 +63,7 @@
                 <h1><b>???</b></h1>
             </div>
             <div class="animateInput">
-                <form action="{{route('reading.pretest.1.postRecall2')}}" method="post">
+                <form action="{{route('reading.pretest.2.postRecall')}}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -116,7 +116,6 @@
             if (--timer < 0) {
                 timer = 0;
                 submit.click();
-                // window.location.href = "{{route('reading.pretest.1.pernyataan')}}";
             }
         }, 1000);
     }

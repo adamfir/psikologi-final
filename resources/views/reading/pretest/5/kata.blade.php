@@ -121,7 +121,7 @@
             <div class="animate6">
                 <h3>Kata 6.</h3>
             </div>
-            <div class="animate6">
+            <div class="animate7">
                 <h3>Kata 7.</h3>
             </div>
         </div>
@@ -144,7 +144,7 @@
 
             if (--timer < 0) {
                 timer = 0;
-                window.location.href = "{{route('reading.pretest.2.pernyataan')}}";
+                window.location.href = "{{route('reading.pretest.5.pernyataan')}}";
             }
         }, 1000);
     }

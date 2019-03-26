@@ -132,7 +132,7 @@
 
             if (--timer < 0) {
                 timer = 0;
-                window.location.href = "{{route('reading.pretest.2.pernyataan')}}";
+                window.location.href = "{{route('reading.pretest.4.pernyataan')}}";
             }
         }, 1000);
     }
