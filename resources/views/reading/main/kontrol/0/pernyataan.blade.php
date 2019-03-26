@@ -23,7 +23,7 @@
                 <a href="#"><button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>Salah</button></a>
             </div>
             <div>
-                <h3>Pernyataan 5.</h3>
+                <h3>Indonesia ada di benua Eropa.</h3>
             </div>
             <div>
                 <a href="#"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Benar</button></a>
@@ -48,7 +48,7 @@
 
             if (--timer < 0) {
                 timer = 0;
-                window.location.href = "{{route('reading.pretest.5.recall')}}";
+                window.location.href = "{{route('reading.main.kontrol.0.recall1')}}";
             }
         }, 1000);
     }

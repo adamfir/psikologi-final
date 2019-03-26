@@ -1,6 +1,6 @@
 @extends('layouts.custom1') 
 @section('title')
-    Pretest
+    Skor Latihan
 @endsection
 @section('styles')
     <style>
@@ -33,9 +33,9 @@
             z-index: 1;
             opacity: 0;
             animation-name: fadeInOut;
-            animation-duration: 2s;
+            animation-duration: 5s;
         }
-        .animate2{
+        /* .animate2{
             top: 0vh;
             margin-top: -4vh;
             z-index: 2;
@@ -43,34 +43,8 @@
             animation-name: fadeInOut;
             animation-delay: 2s;
             animation-duration: 2s;
-        }
-        .animate3{
-            top: 0vh;
-            margin-top: -4vh;
-            z-index: 3;
-            opacity: 0;
-            animation-name: fadeInOut;
-            animation-delay: 4s;
-            animation-duration: 2s;
-        }
-        .animate4{
-            top: 0vh;
-            margin-top: -4vh;
-            z-index: 3;
-            opacity: 0;
-            animation-name: fadeInOut;
-            animation-delay: 6s;
-            animation-duration: 2s;
-        }
-        .animate5{
-            top: 0vh;
-            margin-top: -4vh;
-            z-index: 3;
-            opacity: 0;
-            animation-name: fadeInOut;
-            animation-delay: 8s;
-            animation-duration: 2s;
-        }
+        } */
+
     </style>
 @endsection
 @section('content')
@@ -86,19 +60,7 @@
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
         <div style="text-align:center">
             <div class="animate1">
-                <h3>Kata 1.</h3>
-            </div>
-            <div class="animate2">
-                <h3>Kata 2.</h3>
-            </div>
-            <div class="animate3">
-                <h3>Kata 3.</h3>
-            </div>
-            <div class="animate4">
-                <h3>Kata 4.</h3>
-            </div>
-            <div class="animate5">
-                <h3>Kata 5.</h3>
+                <h3>Skor anda: 2 benar, 1 salah, waktu tersisa 2 detik.</h3>
             </div>
         </div>
     </div>
@@ -120,14 +82,13 @@
 
             if (--timer < 0) {
                 timer = 0;
-                window.location.href = "{{route('reading.pretest.3.pernyataan')}}";
+                window.location.href = "{{route('reading.main.kontrol.instruksi')}}";
             }
         }, 1000);
     }
 
     window.onload = function () {
-        var jumlahKata = 5,
-            time = 2*jumlahKata,
+        var time = 5,
             display = document.querySelector('#time');
         startTimer(time, display);
     };

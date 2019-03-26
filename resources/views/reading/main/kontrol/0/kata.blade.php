@@ -1,6 +1,6 @@
 @extends('layouts.custom1') 
 @section('title')
-    Pretest
+    Reading Span Test
 @endsection
 @section('styles')
     <style>
@@ -44,33 +44,7 @@
             animation-delay: 2s;
             animation-duration: 2s;
         }
-        .animate3{
-            top: 0vh;
-            margin-top: -4vh;
-            z-index: 3;
-            opacity: 0;
-            animation-name: fadeInOut;
-            animation-delay: 4s;
-            animation-duration: 2s;
-        }
-        .animate4{
-            top: 0vh;
-            margin-top: -4vh;
-            z-index: 3;
-            opacity: 0;
-            animation-name: fadeInOut;
-            animation-delay: 6s;
-            animation-duration: 2s;
-        }
-        .animate5{
-            top: 0vh;
-            margin-top: -4vh;
-            z-index: 3;
-            opacity: 0;
-            animation-name: fadeInOut;
-            animation-delay: 8s;
-            animation-duration: 2s;
-        }
+
     </style>
 @endsection
 @section('content')
@@ -86,19 +60,10 @@
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
         <div style="text-align:center">
             <div class="animate1">
-                <h3>Kata 1.</h3>
+                <h3>Batu.</h3>
             </div>
             <div class="animate2">
-                <h3>Kata 2.</h3>
-            </div>
-            <div class="animate3">
-                <h3>Kata 3.</h3>
-            </div>
-            <div class="animate4">
-                <h3>Kata 4.</h3>
-            </div>
-            <div class="animate5">
-                <h3>Kata 5.</h3>
+                <h3>Kunci.</h3>
             </div>
         </div>
     </div>
@@ -120,13 +85,13 @@
 
             if (--timer < 0) {
                 timer = 0;
-                window.location.href = "{{route('reading.pretest.3.pernyataan')}}";
+                window.location.href = "{{route('reading.main.kontrol.0.pernyataan')}}";
             }
         }, 1000);
     }
 
     window.onload = function () {
-        var jumlahKata = 5,
+        var jumlahKata = 2,
             time = 2*jumlahKata,
             display = document.querySelector('#time');
         startTimer(time, display);

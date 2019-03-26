@@ -54,4 +54,19 @@ Route::prefix('/reading')->name('reading.')->group(function(){
             Route::post('/postRecall', 'ReadingPretestController@postRecall5')->name('postRecall');
         });
     });
+    Route::prefix('/main')->name('main.')->group(function(){
+        Route::prefix('/kontrol')->name('kontrol.')->group(function(){
+            Route::get('/', 'ReadingKontrolController@index')->name('index');
+            Route::get('/instruksi', 'ReadingKontrolController@instruksi')->name('instruksi');
+            Route::prefix('/0')->name('0.')->group(function(){
+                Route::get('/kata', 'ReadingKontrolController@kata0')->name('kata');
+                Route::get('/pernyataan', 'ReadingKontrolController@pernyataan0')->name('pernyataan');
+                Route::get('/recall1', 'ReadingKontrolController@recall10')->name('recall1');
+                Route::post('/postRecall1', 'ReadingKontrolController@postRecall10')->name('postRecall1');
+                Route::get('/recall2', 'ReadingKontrolController@recall20')->name('recall2');
+                Route::post('/postRecall2', 'ReadingKontrolController@postRecall20')->name('postRecall2');
+                Route::get('/skor', 'ReadingKontrolController@skor0')->name('skor');
+            });
+        });
+    });
 });

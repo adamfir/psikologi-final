@@ -98,7 +98,7 @@
             <h5>Waktu: <span id="time">00:00</span></h5>
         </div>
         <div>
-            <p>Halo, Adam Firdaus!</p>
+            <p>{{Auth::user()->name}}</p>
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">

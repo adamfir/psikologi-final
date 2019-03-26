@@ -60,10 +60,13 @@
     <div class="d-flex justify-content-center align-items-center lg-12 md-12 mb-12" style="height:92vh">
         <div style="text-align:center">
             <div class="animateTanda">
-                <h1><b>???</b></h1>
+                <h1><b>???</b></h1><br>
+                <p>
+                    Tuliskan seri kata benda yang Anda Ingat secara berurutan
+                </p>
             </div>
             <div class="animateInput">
-                <form action="{{route('reading.pretest.2.postRecall')}}" method="post">
+                <form action="{{route('reading.main.kontrol.0.postRecall2')}}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -74,18 +77,6 @@
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">Kata 2</span>
-                        </div>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Kata 3</span>
-                        </div>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Kata 4</span>
                         </div>
                         <input type="text" class="form-control">
                     </div>
@@ -121,7 +112,7 @@
     }
 
     window.onload = function () {
-        var jumlahKata = 4,
+        var jumlahKata = 2,
             time = 3 + 5*jumlahKata,
             display = document.querySelector('#time');
         startTimer(time, display);
