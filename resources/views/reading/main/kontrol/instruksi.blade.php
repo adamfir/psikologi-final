@@ -30,7 +30,7 @@
                 Tekan tombol di bawah untuk melanjutkan dan memulai tes.
             </p>
             <div class="d-flex justify-content-end">
-                <a href="{{route('reading.main.kontrol.0.kata')}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Mulai Tes</button></a>
+                <a href="{{route('reading.main.kontrol.1.kata',['ulangan'=>1])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Mulai Tes</button></a>
             </div>
         </div>
     </div>
