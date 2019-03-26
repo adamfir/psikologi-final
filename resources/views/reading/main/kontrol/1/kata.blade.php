@@ -53,6 +53,42 @@
             animation-delay: 4s;
             animation-duration: 2s;
         }
+        .animate4{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 2;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 6s;
+            animation-duration: 2s;
+        }
+        .animate5{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 2;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 8s;
+            animation-duration: 2s;
+        }
+        .animate6{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 2;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 10s;
+            animation-duration: 2s;
+        }
+        .animate7{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 2;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 12s;
+            animation-duration: 2s;
+        }
 
     </style>
 @endsection
@@ -68,15 +104,11 @@
     </div>
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
         <div style="text-align:center">
-            <div class="animate1">
-                <h3>{{$kata[0]}}</h3>
-            </div>
-            <div class="animate2">
-                <h3>{{$kata[1]}}</h3>
-            </div>
-            <div class="animate3">
-                <h3>{{$kata[2]}}</h3>
-            </div>
+            @foreach ($katas as $kata)
+                <div class="animate{{$loop->index+1}}">
+                    <h3>{{$kata}}</h3>
+                </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -103,7 +135,7 @@
     }
 
     window.onload = function () {
-        var jumlahKata = 3,
+        var jumlahKata = @json(count($katas)),
             time = 2*jumlahKata,
             display = document.querySelector('#time');
         startTimer(time, display);

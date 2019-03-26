@@ -68,12 +68,12 @@ Route::prefix('/reading')->name('reading.')->group(function(){
                 Route::get('/skor', 'ReadingKontrolController@skor0')->name('skor');
             });
             Route::prefix('/1')->name('1.')->group(function(){
-                Route::get('/kata/{ulangan}', 'ReadingKontrolController@kata1')->name('kata');
-                Route::get('/pernyataan/{ulangan}', 'ReadingKontrolController@pernyataan1')->name('pernyataan');
-                Route::get('/recall1/{ulangan}', 'ReadingKontrolController@recall11')->name('recall1');
-                Route::post('/postRecall1/{ulangan}', 'ReadingKontrolController@postRecall11')->name('postRecall1');
-                Route::get('/recall2/{ulangan}', 'ReadingKontrolController@recall21')->name('recall2');
-                Route::post('/postRecall2/{ulangan}', 'ReadingKontrolController@postRecall21')->name('postRecall2');
+                Route::get('/kata/{seriKe}/{ulangan}', 'ReadingKontrolController@kata1')->name('kata');
+                Route::get('/pernyataan/{seriKe}/{ulangan}', 'ReadingKontrolController@pernyataan1')->name('pernyataan');
+                Route::get('/recall1/{seriKe}/{ulangan}', 'ReadingKontrolController@recall11')->name('recall1');
+                Route::post('/postRecall1/{seriKe}/{ulangan}', 'ReadingKontrolController@postRecall11')->name('postRecall1');
+                Route::get('/recall2/{seriKe}/{ulangan}', 'ReadingKontrolController@recall21')->name('recall2');
+                Route::post('/postRecall2/{seriKe}/{ulangan}', 'ReadingKontrolController@postRecall21')->name('postRecall2');
             });
         });
     });

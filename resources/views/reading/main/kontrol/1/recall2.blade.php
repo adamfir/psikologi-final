@@ -68,24 +68,14 @@
             <div class="animateInput">
                 <form action="{{route($next,$nextParam)}}" method="post">
                     @csrf
+                    @for ($i = 0; $i < $seri; $i++)
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Kata 1</span>
+                            <span class="input-group-text" id="basic-addon1">Kata {{$i+1}}</span>
                         </div>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="kata[]">
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Kata 2</span>
-                        </div>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">Kata 3</span>
-                        </div>
-                        <input type="text" class="form-control">
-                    </div>
+                    @endfor
                     <div class="input-group mb-3">
                         <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
                     </div>
@@ -118,7 +108,7 @@
     }
 
     window.onload = function () {
-        var jumlahKata = 3,
+        var jumlahKata = @json($seri),
             time = 3 + 5*jumlahKata,
             display = document.querySelector('#time');
         startTimer(time, display);
