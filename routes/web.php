@@ -26,6 +26,7 @@ Route::prefix('/reading')->name('reading.')->group(function(){
         Route::prefix('/1')->name('1.')->group(function(){
             Route::get('/kata', 'ReadingPretestController@kata1')->name('kata');
             Route::get('/pernyataan', 'ReadingPretestController@pernyataan1')->name('pernyataan');
+            Route::get('/pernyataan/jawab/{jawaban}', 'ReadingPretestController@postPernyataan1')->name('postPernyataan');
             Route::get('/recall', 'ReadingPretestController@recall1')->name('recall');
             Route::post('/postRecall', 'ReadingPretestController@postRecall1')->name('postRecall');
         });

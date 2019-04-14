@@ -20,13 +20,13 @@
     <div class="d-flex justify-content-center align-items-center lg-12 md-12 mb-12" style="height:92vh">
         <div id="pertanyaan" class="d-flex justify-content-between" style="width:100vw">
             <div>
-                <a href="#"><button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>Salah</button></a>
+                <a href="{{route('reading.pretest.1.postPernyataan',['jawaban'=>'false'])}}"><button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>Salah</button></a>
             </div>
             <div>
-                <h3>Kelinci bisa terbang tinggi.</h3>
+                <h3>{{$pernyataan[0]}}.</h3>
             </div>
             <div>
-                <a href="#"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Benar</button></a>
+                <a href="{{route('reading.pretest.1.postPernyataan',['jawaban'=>'true'])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Benar</button></a>
             </div>
         </div>
     </div>
@@ -48,7 +48,8 @@
 
             if (--timer < 0) {
                 timer = 0;
-                window.location.href = "{{route('reading.pretest.1.recall')}}";
+                // window.location.href = "{{route('reading.pretest.1.recall')}}";
+                window.location.href = "{{route('reading.pretest.1.postPernyataan',['jawaban'=>'none'])}}";
             }
         }, 1000);
     }

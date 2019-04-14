@@ -82,7 +82,7 @@
 
             if (--timer < 0) {
                 timer = 0;
-                window.location.href = "{{route('reading.main.kontrol.instruksi')}}";
+                window.location.href = "{{route('reading.main.kontrol.index')}}";
             }
         }, 1000);
     }

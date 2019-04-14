@@ -75,13 +75,13 @@
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
         <div style="text-align:center">
             <div class="animate1">
-                <h3>Busur.</h3>
+                <h3>{{$kata[0]}}.</h3>
             </div>
             <div class="animate2">
-                <h3>Kardus.</h3>
+                <h3>{{$kata[1]}}.</h3>
             </div>
             <div class="animate3">
-                <h3>Debu.</h3>
+                <h3>{{$kata[2]}}.</h3>
             </div>
             {{-- <div class="animate-button d-flex justify-content-center">
                 <a href="#"><button type="submit" name="" id="" class="btn btn-primary" btn-lg btn-block>Lanjutkan</button></a>
