@@ -15,7 +15,9 @@ class ReadingMainKontrolController extends Controller
         $this->seri = [0,1,3,2,4,5]; //2,3,5,4,6,7
         $this->arrayKata = [
             [
-                ['Batu','Kunci']
+                ['Kursi','Mata'],
+                ['Kopi','Koran'],
+                ['Kuda','Kulkas']
             ],
             [
                 ['Hujan','Kebun','Karcis'],
@@ -28,8 +30,8 @@ class ReadingMainKontrolController extends Controller
                 ['Lebah','Nangka','Oknum','Perang',]
             ],
             [
-                ['Becak','Dunia','Emping','Gitar','Intan'],
-                ['Kain','Kipas','Lampu','Kaki','Piano'],
+                ['Becak','Dunia','Emping','Meja','Intan'],
+                ['Kain','Mesin','Lampu','Kaki','Piano'],
                 ['Piagam','Tiket','Bunda','Kapas','Inang']
             ],
             [
@@ -40,11 +42,11 @@ class ReadingMainKontrolController extends Controller
             [
                 ['Bando','Bantal','Batu','Bola','Buah','Buku','Busur'],
                 ['Dada','Danau','Gajah','Gedung','Gelas','Gitar','Gudang'],
-                ['Gunung','Hidung','Jari','Jarum','Kabel','Kaca','Kain']
+                ['Gunung','Hidung','Jari','Jarum','Kabel','Kaca','Mobil']
             ]
         ];
         $this->arrayPernyataan = [
-            [['Indonesia ada di Benua Eropa','false']],
+            [['Indonesia ada di Benua Eropa','false'],['Indahnya musim semi di Afrika','false'],['Kiwi hidup di Selandia baru','true']],
             [['Anak gajah berbelalai panjang','true'],['Telinga panda berwarna putih','false'],['Semua burung bersayap','true']],
             [['Burung tidak punya gigi','true'],['Pinguin tinggal kutub selatan','true'],['Pinguin bisa berenang','true']],
             [['Bunglon dapat berubah bentuk','false'],['Hiu bernapas dengan paru-paru','true'],['Blueberry berwarna merah','false']],
@@ -168,7 +170,7 @@ class ReadingMainKontrolController extends Controller
         }
     }
     public function skor($seri, $iterasi){
-        return view('reading.main.score');
+        return view('reading.main.score',compact('seri','iterasi'));
     }
     // public function mainTestGate(){
     //     $jenisUser = Auth::user()->jenisUser;

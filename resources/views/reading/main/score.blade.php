@@ -67,8 +67,13 @@
                 </h1>
             </div>
             <div class="animateNext">
-                <h1>Latihan selesai. Silahkan melanjutkan tes utama.</h1>
-                <a href="{{route('reading.main.fokus',['seri'=>1,'iterasi'=>0])}}"><button type="button" class="btn btn-primary">Lanjutkan</button></a>
+                @if ($seri==0 && $iterasi<2)
+                    <h1>Latihan iterasi {{$iterasi+1}} selesai.</h1>
+                    <a href="{{route('reading.main.fokus',['seri'=>$seri,'iterasi'=>$iterasi+1])}}"><button type="button" class="btn btn-primary">Lanjut iterasi {{$iterasi+2}}</button></a>
+                @else
+                    <h1>Latihan selesai.</h1>
+                    <a href="{{route('reading.main.fokus',['seri'=>1,'iterasi'=>0])}}"><button type="button" class="btn btn-primary">Mulai tes utama</button></a>
+                @endif
             </div>
         </div>
     </div>
