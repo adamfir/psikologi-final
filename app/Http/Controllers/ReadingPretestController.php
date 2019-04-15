@@ -21,11 +21,11 @@ class ReadingPretestController extends Controller
             ['Pisang','Sirih','Lokal','Album','Benang','Debu','Gula'] //4
         ];
         $this->arrayPernyataan=[
-            ['Pernyataan 1 Lorem ipsum doler sit amet', 'false'],   //0
-            ['Pernyataan 2 Lorem ipsum doler sit amet', 'true'],    //1
-            ['Pernyataan 3 Lorem ipsum doler sit amet', 'true'],    //2
-            ['Pernyataan 4 Lorem ipsum doler sit amet', 'true'],    //3
-            ['Pernyataan 5 Lorem ipsum doler sit amet', 'true']     //4
+            ['Panda hanya hidup di Indonesia', 'false'],   //0
+            ['Singa jantan  memiliki surai', 'true'],    //1
+            ['Simpanse berlengan panjang', 'true'],    //2
+            ['Semua sayuran berwarna hijau', 'false'],    //3
+            ['Kelinci dapat terbang tinggi', 'false']     //4
         ];
     }
     public function fokus($iterasi){
@@ -80,7 +80,8 @@ class ReadingPretestController extends Controller
             return redirect('reading/pretest/fokus/iterasi/'.strval($nextIterasi));
         }
         else{
-            dd("Redirect ke next tes");
+            return redirect('reading/main/');
+            // dd("Redirect ke next tes");
         }
     }
 

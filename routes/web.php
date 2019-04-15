@@ -63,6 +63,9 @@ Route::prefix('/reading')->name('reading.')->group(function(){
     });
     Route::prefix('/main')->name('main.')->group(function(){
         Route::get('/', 'ReadingMainKontrolController@index')->name('index');
+        Route::get('/fokus/seri/{seri}/iterasi/{iterasi}', 'ReadingMainKontrolController@fokus')->name('fokus');
+        Route::get('/fokus-2/seri/{seri}/iterasi/{iterasi}', 'ReadingMainKontrolController@fokus2')->name('fokus2');
+        Route::get('/gambar/seri/{seri}/iterasi/{iterasi}', 'ReadingMainKontrolController@gambar')->name('gambar');
         Route::get('/kata/seri/{seri}/iterasi/{iterasi}', 'ReadingMainKontrolController@kata')->name('kata');
         Route::get('/pernyataan/seri/{seri}/iterasi/{iterasi}', 'ReadingMainKontrolController@pernyataan')->name('pernyataan');
         Route::get('/postPernyataan/seri/{seri}/iterasi/{iterasi}/jawaban/{jawaban}', 'ReadingMainKontrolController@postPernyataan')->name('postPernyataan');
@@ -71,6 +74,7 @@ Route::prefix('/reading')->name('reading.')->group(function(){
         Route::get('/serial-recall/seri/{seri}/iterasi/{iterasi}','ReadingMainKontrolController@serialRecall')->name('serialRecall');
         Route::post('/serial-recall/seri/{seri}/iterasi/{iterasi}','ReadingMainKontrolController@postSerialRecall')->name('postSerialRecall');
         Route::get('/skor/seri/{seri}/iterasi/{iterasi}','ReadingMainKontrolController@skor')->name('skor');
+        Route::get('/gate','ReadingMainKontrolController@mainTestGate')->name('gate');
         // Route::prefix('/kontrol')->name('kontrol.')->group(function(){
         //     Route::get('/', 'ReadingMainKontrolController@index')->name('index');
         //     Route::get('/instruksi', 'ReadingKontrolController@instruksi')->name('instruksi');

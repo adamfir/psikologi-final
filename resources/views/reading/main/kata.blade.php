@@ -135,7 +135,7 @@
     }
 
     window.onload = function () {
-        var jumlahKata = 2,
+        var jumlahKata = @json(count($kata)),
             time = 2*jumlahKata,
             display = document.querySelector('#time');
         startTimer(time, display);

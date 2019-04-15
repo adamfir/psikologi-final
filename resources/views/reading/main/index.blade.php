@@ -85,7 +85,7 @@
                 Tekan tombol di bawah untuk memulai LATIHAN.
             </p>
             <div class="d-flex justify-content-end">
-                <a href="#"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Lanjut ke Latihan</button></a>
+                <a href="{{route('reading.main.fokus',['seri'=>0,'iterasi'=>0])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Lanjut ke Latihan</button></a>
             </div> 
            
             {{-- <div class="animateTitle">

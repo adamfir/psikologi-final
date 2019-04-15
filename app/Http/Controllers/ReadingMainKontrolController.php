@@ -23,7 +23,7 @@ class ReadingMainKontrolController extends Controller
                 ['Semen','Toko','Wayang']
             ],
             [
-                ['Aktris','Kakek','Mentri','Nahkoda'],
+                ['Aktris','Kakek','Menteri','Nahkoda'],
                 ['Putra','Turis','Dusun','Penjara',],
                 ['Lebah','Nangka','Oknum','Perang',]
             ],
@@ -45,36 +45,62 @@ class ReadingMainKontrolController extends Controller
         ];
         $this->arrayPernyataan = [
             [['Indonesia ada di Benua Eropa','false']],
-            [['Pernyataan 3 1','true'], ['Pernyataan 3 2','true'], ['Pernyataan 3 3','true']],
-            [['Pernyataan 4 1','true'], ['Pernyataan 4 2','true'], ['Pernyataan 4 3','true']],
-            [['Pernyataan 5 1','true'], ['Pernyataan 5 2','true'], ['Pernyataan 5 3','true']],
-            [['Pernyataan 6 1','true'], ['Pernyataan 6 2','true'], ['Pernyataan 6 3','true']],
-            [['Pernyataan 7 1','true'], ['Pernyataan 7 2','true'], ['Pernyataan 7 3','true']]
+            [['Anak gajah berbelalai panjang','true'],['Telinga panda berwarna putih','false'],['Semua burung bersayap','true']],
+            [['Burung tidak punya gigi','true'],['Pinguin tinggal kutub selatan','true'],['Pinguin bisa berenang','true']],
+            [['Bunglon dapat berubah bentuk','false'],['Hiu bernapas dengan paru-paru','true'],['Blueberry berwarna merah','false']],
+            [['Lumba-lumba mamalia laut','Benar'],['Gurita disebut oktopus','Benar'],['Tarantula si laba-laba raksasa','Benar']],
+            [['Sapi suka  minum susu','Salah'],['Ulat si bayi kupu-kupu','Benar'],['Kupu-kupu menggigit  madu','Salah']]
         ];
     }
     public function index(){
         return view('reading.main.index');
     }
+    public function fokus($seri,$iterasi){
+        $jenisUser = Auth::user()->jenisUser;
+        if($jenisUser=="eksperimen" && $iterasi == 0 && $seri != 0){
+            $next = 'reading.main.gambar';
+            $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
+            // return redirect('reading/main/gambar/seri/'.$seri.'/iterasi/'.$iterasi);
+        }
+        else{
+            $next = 'reading.main.kata';
+            $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
+        }
+        return view('reading.main.focus', compact('next','nextParam'));
+    }
+    public function fokus2($seri,$iterasi){
+        $next = 'reading.main.kata';
+        $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
+        return view('reading.main.focus', compact('next','nextParam'));
+    }
+    public function gambar($seri,$iterasi){
+        $next = 'reading.main.fokus2';
+        $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
+        $emosi = 'positif'; //Auth::user()->emosi;
+        return view('reading.main.gambar', compact('next','nextParam','seri','iterasi','emosi'));
+    }
     public function kata($seri,$iterasi){
         $next = 'reading.main.pernyataan';
         $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
-        if($seri == 0){
-            $kata = $this->arrayKata[0][0];
-        }
+        // if($seri == 0){
+        //     $kata = $this->arrayKata[0][0];
+        // }
+        $kata = $this->arrayKata[$this->seri[$seri]][$iterasi];
         return view('reading.main.kata', compact('kata','next','nextParam'));
     }
     public function pernyataan($seri,$iterasi){
-        if($seri == 0){
-            $pernyataan = $this->arrayPernyataan[0][0];
-        }
+        // if($seri == 0){
+        //     $pernyataan = $this->arrayPernyataan[$seri][$iterasi];
+        // }
+        $pernyataan = $this->arrayPernyataan[$this->seri[$seri]][$iterasi];
         $next = 'reading.main.postPernyataan';
         $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi, 'jawaban'=>'none'];
         return view('reading.main.pernyataan', compact('next','nextParam','pernyataan','seri','iterasi'));
     }
     public function postPernyataan($seri,$iterasi,$jawaban){
-        if($seri == 0){
-            $result = ($jawaban == $this->arrayPernyataan[$seri][$iterasi][1] ? true: false);
-        }
+        // if($seri == 0){
+        // }
+        $result = ($jawaban == $this->arrayPernyataan[$this->seri[$seri]][$iterasi][1] ? true: false);
         // dd($result);
         // TODO: simpan hasil ke DB
         return redirect('reading/main/free-recall/seri/'.$seri.'/iterasi/'.$iterasi);
@@ -83,12 +109,13 @@ class ReadingMainKontrolController extends Controller
         // dd($iterasi);
         $next='reading.main.postFreeRecall';
         $nextParam=['seri'=>$seri,'iterasi'=>$iterasi];
-        return view('reading.main.freeRecall', compact('next','nextParam'));
+        $length = count($this->arrayKata[$this->seri[$seri]][$iterasi]);
+        return view('reading.main.freeRecall', compact('next','nextParam','length'));
     }
     public function postFreeRecall(Request $req, $seri, $iterasi){
         $jawabanUser = $req->kata;
         $jawabanUser = array_map('strtolower',$jawabanUser);
-        $kunciJawaban = $this->arrayKata[$seri][$iterasi];
+        $kunciJawaban = $this->arrayKata[$this->seri[$seri]][$iterasi];
         $kunciJawaban = array_map('strtolower',$kunciJawaban);
         $waktu = (int) $req->waktu;
         $benar = 0;
@@ -108,12 +135,13 @@ class ReadingMainKontrolController extends Controller
         // dd($seri,$iterasi);
         $next='reading.main.postSerialRecall';
         $nextParam=['seri'=>$seri,'iterasi'=>$iterasi];
-        return view('reading.main.serialRecall', compact('next','nextParam'));
+        $length = count($this->arrayKata[$this->seri[$seri]][$iterasi]);
+        return view('reading.main.serialRecall', compact('next','nextParam','length'));
     }
     public function postSerialRecall(Request $req, $seri, $iterasi){
         $jawabanUser = $req->kata;
         $jawabanUser = array_map('strtolower',$jawabanUser);
-        $kunciJawaban = $this->arrayKata[$seri][$iterasi];
+        $kunciJawaban = $this->arrayKata[$this->seri[$seri]][$iterasi];
         $kunciJawaban = array_map('strtolower',$kunciJawaban);
         $waktu = (int) $req->waktu;
         $benar = 0;
@@ -122,20 +150,30 @@ class ReadingMainKontrolController extends Controller
                 $benar+=1;
             }
         }
-        // dd($benar,$waktu);
+        $hasil = 0;
+        if($benar == count($kunciJawaban)){
+            $hasil = 1;
+        }
+        // dd($benar,$hasil,$waktu);
         if($seri==0){
-            // Next nya istirahat dulu buat masuk ke tes utama.
-            $next = '';
-            $nextParam = '';
             return redirect('/reading/main/skor/seri/'.$seri.'/iterasi/'.$iterasi);
+        }
+        else{
+            $iterasi += 1;
+            if($iterasi > 2){
+                $seri += 1;
+                $iterasi = 0;
+            }
+            return redirect('/reading/main/fokus/seri/'.$seri.'/iterasi/'.$iterasi);
         }
     }
     public function skor($seri, $iterasi){
         return view('reading.main.score');
     }
-    public function mainTestGate(){
-        // if(Auth::user()->)
-    }
+    // public function mainTestGate(){
+    //     $jenisUser = Auth::user()->jenisUser;
+    //     dd($jenisUser);
+    // }
     // public function index(){
     //     return view('reading.main.kontrol.index');
     // }

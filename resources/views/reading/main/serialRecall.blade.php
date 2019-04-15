@@ -66,7 +66,7 @@
             <div class="animateInput">
                 <form action="{{route($next,$nextParam)}}" method="post">
                     @csrf
-                    @for ($i = 0; $i < 2; $i++)
+                    @for ($i = 0; $i < $length; $i++)
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">Kata {{$i+1}}</span>

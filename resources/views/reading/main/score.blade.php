@@ -68,7 +68,7 @@
             </div>
             <div class="animateNext">
                 <h1>Latihan selesai. Silahkan melanjutkan tes utama.</h1>
-                <a href="#"><button type="button" class="btn btn-primary">Lanjutkan</button></a>
+                <a href="{{route('reading.main.fokus',['seri'=>1,'iterasi'=>0])}}"><button type="button" class="btn btn-primary">Lanjutkan</button></a>
             </div>
         </div>
     </div>
