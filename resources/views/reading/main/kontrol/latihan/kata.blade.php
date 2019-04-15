@@ -1,6 +1,6 @@
 @extends('layouts.custom1') 
 @section('title')
-    Pretest
+    Reading Span Test
 @endsection
 @section('styles')
     <style>
@@ -28,13 +28,21 @@
                 opacity: 1;
             }
         }
-        .animate{
+        .animate1{
             top: 0vh;
             z-index: 1;
             opacity: 0;
             animation-name: fadeInOut;
-            animation-duration: 3s;
-            font-size: 100pt;
+            animation-duration: 2s;
+        }
+        .animate2{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 2;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 2s;
+            animation-duration: 2s;
         }
 
     </style>
@@ -51,8 +59,11 @@
     </div>
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
         <div style="text-align:center">
-            <div class="animate">
-                +
+            <div class="animate1">
+                <h3>{{$kata[0]}}</h3>
+            </div>
+            <div class="animate2">
+                <h3>{{$kata[1]}}</h3>
             </div>
         </div>
     </div>
@@ -80,7 +91,8 @@
     }
 
     window.onload = function () {
-        var time = 2,
+        var jumlahKata = 2,
+            time = 2*jumlahKata,
             display = document.querySelector('#time');
         startTimer(time, display);
     };

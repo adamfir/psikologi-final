@@ -1,6 +1,6 @@
 @extends('layouts.custom1') 
 @section('title')
-    Pretest
+    Reading Span Test
 @endsection
 @section('styles')
     <style>
@@ -28,13 +28,66 @@
                 opacity: 1;
             }
         }
-        .animate{
+        .animate0{
             top: 0vh;
             z-index: 1;
             opacity: 0;
             animation-name: fadeInOut;
-            animation-duration: 3s;
-            font-size: 100pt;
+            animation-duration: 2s;
+        }
+        .animate1{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 2;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 2s;
+            animation-duration: 2s;
+        }
+        .animate2{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 3;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 4s;
+            animation-duration: 2s;
+        }
+        .animate3{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 3;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 6s;
+            animation-duration: 2s;
+        }
+        .animate4{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 3;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 8s;
+            animation-duration: 2s;
+        }
+        .animate5{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 3;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 10s;
+            animation-duration: 2s;
+        }
+        .animate6{
+            top: 0vh;
+            margin-top: -4vh;
+            z-index: 3;
+            opacity: 0;
+            animation-name: fadeInOut;
+            animation-delay: 12s;
+            animation-duration: 2s;
         }
 
     </style>
@@ -51,9 +104,11 @@
     </div>
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
         <div style="text-align:center">
-            <div class="animate">
-                +
-            </div>
+            @for ($i = 0; $i < count($kata); $i++)
+                <div class="animate{{$i}}">
+                    <h1>{{$kata[$i]}}</h1>
+                </div>
+            @endfor
         </div>
     </div>
 </div>
@@ -80,7 +135,8 @@
     }
 
     window.onload = function () {
-        var time = 2,
+        var jumlahKata = 2,
+            time = 2*jumlahKata,
             display = document.querySelector('#time');
         startTimer(time, display);
     };
