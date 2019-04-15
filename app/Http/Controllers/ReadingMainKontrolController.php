@@ -172,44 +172,4 @@ class ReadingMainKontrolController extends Controller
     public function skor($seri, $iterasi){
         return view('reading.main.score',compact('seri','iterasi'));
     }
-    // public function mainTestGate(){
-    //     $jenisUser = Auth::user()->jenisUser;
-    //     dd($jenisUser);
-    // }
-    // public function index(){
-    //     return view('reading.main.kontrol.index');
-    // }
-    // public function latihanKata($iterasi){
-    //     $next = 'reading.main.kontrol.latihan.pernyataan';
-    //     $nextParam = ['iterasi'=>$iterasi];
-    //     $kata = $this->latihanKata;
-    //     return view('reading.main.kontrol.latihan.kata', compact('kata','next','nextParam'));
-    // }
-    // public function latihanPernyataan($iterasi){
-    //     $pernyataan = $this->latihanPernyataan;
-    //     $next = 'reading.main.kontrol.latihan.postPernyataan';
-    //     $nextParam = ['iterasi'=>$iterasi, 'jawaban'=>'none'];
-    //     return view('reading.main.kontrol.latihan.pernyataan', compact('next','nextParam','pernyataan','iterasi'));
-    // }
-    // public function latihanPostPernyataan($iterasi,$jawaban){
-    //     $result = ($jawaban == $this->latihanPernyataan[1] ? true: false);
-    //     // dd($result);
-    //     // TODO: simpan hasil ke DB
-    //     return redirect('reading/main/kontrol/latihan/free-recall/iterasi/'.$iterasi);
-    // }
-    // public function latihanFreeRecall($iterasi){
-    //     // dd($iterasi);
-    //     $next='reading.main.kontrol.latihan.postFreeRecall';
-    //     $nextParam=['iterasi'=>$iterasi];
-    //     return view('reading.main.kontrol.latihan.freeRecall', compact('next','nextParam'));
-    // }
-    // public function postLatihanFreeRecall(Request $req, $iterasi){
-    //     dd($req,$iterasi);
-    // }
-    // public function latihanSerialRecall($iterasi){
-    //     dd($iterasi);
-    // }
-    // public function postLatihanSerialRecall(Request $req, $iterasi){
-    //     dd($req,$iterasi);
-    // }
 }
