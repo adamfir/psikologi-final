@@ -52,7 +52,7 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-end lg-12 md-12 mb-12" style="height:8vh">
         <div>
-            {{-- <h5>Waktu: <span id="time">00:00</span></h5> --}}
+            <h5>Waktu: <span id="time">00:00</span></h5>
         </div> 
         <div>
             <p>{{Auth::user()->name}}</p>
@@ -67,13 +67,17 @@
                 </h1>
             </div>
             <div class="animateNext">
-                @if ($seri==0 && $iterasi<2)
+                @if ($seri==2 && $iterasi==0)
+                    <h1>Latihan selesai</h1>
+                    <h1>Memulai tes utama</h1>
+                @endif
+                {{-- @if ($seri<2 && $iterasi<2)
                     <h1>Latihan iterasi {{$iterasi+1}} selesai.</h1>
                     <a href="{{route('reading.main.fokus',['seri'=>$seri,'iterasi'=>$iterasi+1])}}"><button type="button" class="btn btn-primary">Lanjut iterasi {{$iterasi+2}}</button></a>
                 @else
                     <h1>Latihan selesai.</h1>
                     <a href="{{route('reading.main.fokus',['seri'=>1,'iterasi'=>0])}}"><button type="button" class="btn btn-primary">Mulai tes utama</button></a>
-                @endif
+                @endif --}}
             </div>
         </div>
     </div>
@@ -81,7 +85,7 @@
 @endsection
 
 @section('scripts')
-    {{-- <script>
+    <script>
     function startTimer(duration, display) {
         var timer = duration, minutes, seconds;
         setInterval(function () {
@@ -95,15 +99,15 @@
 
             if (--timer < 0) {
                 timer = 0;
-                
+                window.location.href = @json(route($next,$nextParam));
             }
         }, 1000);
     }
 
     window.onload = function () {
-        var time = 8,
+        var time = 10,
             display = document.querySelector('#time');
         startTimer(time, display);
     };
-    </script> --}}
+    </script>
 @endsection

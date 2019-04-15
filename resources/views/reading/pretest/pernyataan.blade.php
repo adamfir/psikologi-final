@@ -21,13 +21,13 @@
         <div id="pertanyaan" class="d-flex justify-content-between" style="width:100vw">
             <div>
                 {{-- <a href="{{route('reading.pretest.1.postPernyataan',['jawaban'=>'false'])}}"><button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>Salah</button></a> --}}
-                <a href="{{route($next,['iterasi'=>$iterasi,'jawaban'=>'false'])}}"><button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>Salah</button></a>
+                <a href="{{route($next,['seri'=>$seri,'iterasi'=>$iterasi,'jawaban'=>'false'])}}"><button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>Salah</button></a>
             </div>
             <div>
                 <h3>{{$pernyataan[0]}}.</h3>
             </div>
             <div>
-                <a href="{{route($next,['iterasi'=>$iterasi,'jawaban'=>'true'])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Benar</button></a>
+                <a href="{{route($next,['seri'=>$seri,'iterasi'=>$iterasi,'jawaban'=>'true'])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Benar</button></a>
             </div>
         </div>
     </div>

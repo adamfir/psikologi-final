@@ -14,54 +14,70 @@ class ReadingPretestController extends Controller
         $this->middleware('auth');
         $this->seri = [0,2,1,3,4]; //3,5,4,6,7
         $this->arrayKata = [
-            ['Batu','Busur','Cermin'], //0
-            ['Dompet','Filter','Gembok','Kamus'], //1
-            ['Kunci','Kulkas','Lulur','Pipa','Pistol'], //2
-            ['Suling','Artis','Dapur','Ngarai','Bambu','Kakap'], //3
-            ['Pisang','Sirih','Lokal','Album','Benang','Debu','Gula'] //4
+            [
+                ['Batu','Busur','Cermin'],
+                ['Motor','Mulut','Pagar']
+            ],
+            [
+                ['Dompet','Filter','Gembok','Kamus'],
+                ['Paku','Palu','Panda','Papan']
+            ],
+            [
+                ['Kunci','Kulkas','Lulur','Pipa','Pistol'],
+                ['Pasir','Payung','Pensil','Perut','Pintu']
+            ],
+            [
+                ['Suling','Artis','Dapur','Ngarai','Bambu','Kakap'],
+                ['Pipa','Pipi','Piring','Pulau','Rambut','Roda']
+            ],
+            [
+                ['Pisang','Sirih','Lokal','Album','Benang','Debu','Gula'],
+                ['Roti','Rusa','Sabuk','Sapi','Sapu','Semut','Sisir']
+            ]
         ];
         $this->arrayPernyataan=[
-            ['Panda hanya hidup di Indonesia', 'false'],   //0
-            ['Singa jantan  memiliki surai', 'true'],    //1
-            ['Simpanse berlengan panjang', 'true'],    //2
-            ['Semua sayuran berwarna hijau', 'false'],    //3
-            ['Kelinci dapat terbang tinggi', 'false']     //4
+            [['Panda hanya hidup di Indonesia', 'false'],['Katak selalu hidup di air','false']],  
+            [['Singa jantan  memiliki surai', 'true'],['Mendung tidak selalu hujan','true']],
+            [['Simpanse berlengan panjang', 'true'],['Angin adalah udara yang tertahan','false']],
+            [['Semua sayuran berwarna hijau', 'false'],['Air danau tidak selalu tawar','false']],
+            [['Kelinci dapat terbang tinggi', 'false'],['Nil  danau terbesar di dunia','false']]
         ];
     }
-    public function fokus($iterasi){
+    public function fokus($seri,$iterasi){
         $next = 'reading.pretest.kata';
-        $nextParam = ['iterasi'=>$iterasi];
+        $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
         return view('reading.pretest.focus',compact('next','nextParam'));
     }
-    public function kata($iterasi){
+    public function kata($seri,$iterasi){
         $next = 'reading.pretest.pernyataan';
-        $nextParam = ['iterasi'=>$iterasi];
-        $seri = $this->seri[$iterasi];
-        $kata = $this->arrayKata[$seri];
+        $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
+        // $seri = $this->seri[$iterasi];
+        $kata = $this->arrayKata[$this->seri[$seri]][$iterasi];
         return view('reading.pretest.kata', compact('kata','next','nextParam'));
     }
-    public function pernyataan($iterasi){
-        $pernyataan = $this->arrayPernyataan[$iterasi];
+    public function pernyataan($seri,$iterasi){
+        $pernyataan = $this->arrayPernyataan[$this->seri[$seri]][$iterasi];
         $next = 'reading.pretest.postPernyataan';
-        $nextParam = ['iterasi'=>$iterasi, 'jawaban'=>'none'];
-        return view('reading.pretest.pernyataan', compact('pernyataan','next','nextParam', 'iterasi'));
+        $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi, 'jawaban'=>'none'];
+        return view('reading.pretest.pernyataan', compact('pernyataan','next','nextParam','seri','iterasi'));
     }
-    public function postPernyataan($iterasi,$jawaban){
-        $result = ($jawaban == $this->arrayPernyataan[$iterasi][1] ? true: false);
+    public function postPernyataan($seri,$iterasi,$jawaban){
+        $result = ($jawaban == $this->arrayPernyataan[$this->seri[$seri]][$iterasi][1] ? true: false);
         // dd($result);
         // TODO: simpan hasil ke DB
-        return redirect('reading/pretest/recall/iterasi/'.$iterasi);
+        return redirect('reading/pretest/recall/seri/'.$seri.'/iterasi/'.$iterasi);
     }
-    public function recall($iterasi){
-        $seri = $this->seri[$iterasi]+3;
+    public function recall($seri,$iterasi){
+        // $seri = $this->seri[$iterasi]+3;
         $next = 'reading.pretest.postRecall';
-        $nextParam = ['iterasi'=>$iterasi];
-        return view('reading.pretest.recall', compact('seri','next','nextParam'));
+        $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
+        $jumlahKata = $this->seri[$seri]+3;
+        return view('reading.pretest.recall', compact('jumlahKata','next','nextParam'));
     }
-    public function postRecall(Request $req, $iterasi){
+    public function postRecall(Request $req, $seri, $iterasi){
         $jawabanUser = $req->kata;
         $jawabanUser = array_map('strtolower',$jawabanUser);
-        $kunciJawaban = $this->arrayKata[$iterasi];
+        $kunciJawaban = $this->arrayKata[$this->seri[$seri]][$iterasi];
         $kunciJawaban = array_map('strtolower',$kunciJawaban);
         $waktu = (int) $req->waktu;
         $benar = 0;
@@ -75,10 +91,13 @@ class ReadingPretestController extends Controller
         // TODO: Save ke DB
         
         // next route
-        $nextIterasi = $iterasi+1;
-        if($nextIterasi<5){
-            return redirect('reading/pretest/fokus/iterasi/'.strval($nextIterasi));
+        $iterasi+=1;
+        if($iterasi>1){
+            $seri+=1;
+            $iterasi=0;
         }
+        if($seri<5)
+            return redirect('reading/pretest/fokus/seri/'.$seri.'/iterasi/'.$iterasi);
         else{
             return redirect('reading/main/');
             // dd("Redirect ke next tes");

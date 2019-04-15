@@ -23,12 +23,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('/reading')->name('reading.')->group(function(){
     Route::get('/', 'ReadingController@instruksi_pretest')->name('main');
     Route::prefix('/pretest')->name('pretest.')->group(function(){
-        Route::get('/fokus/iterasi/{iterasi}', 'ReadingPretestController@fokus')->name('fokus');
-        Route::get('/kata/iterasi/{iterasi}', 'ReadingPretestController@kata')->name('kata');
-        Route::get('/pernyataan/iterasi/{iterasi}', 'ReadingPretestController@pernyataan')->name('pernyataan');
-        Route::get('/pernyataan/iterasi/{iterasi}/jawab/{jawaban}', 'ReadingPretestController@postPernyataan')->name('postPernyataan');
-        Route::get('/recall/iterasi/{iterasi}', 'ReadingPretestController@recall')->name('recall');
-        Route::post('/postRecall/iterasi/{iterasi}', 'ReadingPretestController@postRecall')->name('postRecall');
+        Route::get('/fokus/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@fokus')->name('fokus');
+        Route::get('/kata/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@kata')->name('kata');
+        Route::get('/pernyataan/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@pernyataan')->name('pernyataan');
+        Route::get('/pernyataan/seri/{seri}/iterasi/{iterasi}/jawab/{jawaban}', 'ReadingPretestController@postPernyataan')->name('postPernyataan');
+        Route::get('/recall/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@recall')->name('recall');
+        Route::post('/postRecall/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@postRecall')->name('postRecall');
     });
     Route::prefix('/main')->name('main.')->group(function(){
         Route::get('/', 'ReadingMainKontrolController@index')->name('index');

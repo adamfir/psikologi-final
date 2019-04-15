@@ -38,7 +38,7 @@
                 Tekan tombol di bawah untuk melanjutkan dan memulai Pre-test (dengan ini anda telah bersedia untuk menjadi partisipan dalam penelitian ini).
             </p>
             <div class="d-flex justify-content-end">
-                <a href="{{route('reading.pretest.fokus',['iterasi'=>0])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Lanjut ke Pre-test</button></a>
+                <a href="{{route('reading.pretest.fokus',['seri'=>0,'iterasi'=>0])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Lanjut ke Pre-test</button></a>
             </div>
         </div>
     </div>

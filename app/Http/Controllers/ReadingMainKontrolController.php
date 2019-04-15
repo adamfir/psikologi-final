@@ -12,12 +12,17 @@ class ReadingMainKontrolController extends Controller
     private $seri;
     public function __construct(){
         $this->middleware('auth');
-        $this->seri = [0,1,3,2,4,5]; //2,3,5,4,6,7
+        $this->seri = [0,1,2,4,3,6,5]; //2,3,3,5,4,6,7
         $this->arrayKata = [
             [
                 ['Kursi','Mata'],
                 ['Kopi','Koran'],
                 ['Kuda','Kulkas']
+            ],
+            [
+                ['Motor','Mulut','Pagar'],
+                ['Paku','Palu','Panda'],
+                ['Papan','Pasir','Payung'],
             ],
             [
                 ['Hujan','Kebun','Karcis'],
@@ -47,11 +52,12 @@ class ReadingMainKontrolController extends Controller
         ];
         $this->arrayPernyataan = [
             [['Indonesia ada di Benua Eropa','false'],['Indahnya musim semi di Afrika','false'],['Kiwi hidup di Selandia baru','true']],
+            [['Musim gugur sakura bersemi','false'],['Panasnya musim gugur di Jepang','false'],['Awan terbentuk dari udara di air','false']],
             [['Anak gajah berbelalai panjang','true'],['Telinga panda berwarna putih','false'],['Semua burung bersayap','true']],
             [['Burung tidak punya gigi','true'],['Pinguin tinggal kutub selatan','true'],['Pinguin bisa berenang','true']],
             [['Bunglon dapat berubah bentuk','false'],['Hiu bernapas dengan paru-paru','true'],['Blueberry berwarna merah','false']],
-            [['Lumba-lumba mamalia laut','Benar'],['Gurita disebut oktopus','Benar'],['Tarantula si laba-laba raksasa','Benar']],
-            [['Sapi suka  minum susu','Salah'],['Ulat si bayi kupu-kupu','Benar'],['Kupu-kupu menggigit  madu','Salah']]
+            [['Lumba-lumba mamalia laut','true'],['Gurita disebut oktopus','true'],['Tarantula si laba-laba raksasa','true']],
+            [['Sapi suka  minum susu','false'],['Ulat si bayi kupu-kupu','true'],['Kupu-kupu menggigit  madu','false']]
         ];
     }
     public function index(){
@@ -59,7 +65,7 @@ class ReadingMainKontrolController extends Controller
     }
     public function fokus($seri,$iterasi){
         $jenisUser = Auth::user()->jenisUser;
-        if($jenisUser=="eksperimen" && $iterasi == 0 && $seri != 0){
+        if($jenisUser=="eksperimen" && $iterasi == 0 && $seri > 1){
             $next = 'reading.main.gambar';
             $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
             // return redirect('reading/main/gambar/seri/'.$seri.'/iterasi/'.$iterasi);
@@ -79,7 +85,8 @@ class ReadingMainKontrolController extends Controller
         $next = 'reading.main.fokus2';
         $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
         $emosi = 'positif'; //Auth::user()->emosi;
-        return view('reading.main.gambar', compact('next','nextParam','seri','iterasi','emosi'));
+        $seriGambar = $seri-2;
+        return view('reading.main.gambar', compact('next','nextParam','seri','iterasi','emosi','seriGambar'));
     }
     public function kata($seri,$iterasi){
         $next = 'reading.main.pernyataan';
@@ -157,7 +164,7 @@ class ReadingMainKontrolController extends Controller
             $hasil = 1;
         }
         // dd($benar,$hasil,$waktu);
-        if($seri==0){
+        if($seri<2){
             return redirect('/reading/main/skor/seri/'.$seri.'/iterasi/'.$iterasi);
         }
         else{
@@ -166,10 +173,23 @@ class ReadingMainKontrolController extends Controller
                 $seri += 1;
                 $iterasi = 0;
             }
-            return redirect('/reading/main/fokus/seri/'.$seri.'/iterasi/'.$iterasi);
+            if($seri<7){
+                return redirect('/reading/main/fokus/seri/'.$seri.'/iterasi/'.$iterasi);
+            }
+            else{
+                dd('Redirect ke postest');
+            }
         }
     }
     public function skor($seri, $iterasi){
-        return view('reading.main.score',compact('seri','iterasi'));
+        $iterasi += 1;
+        if($iterasi > 2){
+            $seri += 1;
+            $iterasi = 0;
+        }
+        $next = 'reading.main.fokus';
+        $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
+        // dd($next,$nextParam);
+        return view('reading.main.score',compact('seri','iterasi','next','nextParam'));
     }
 }

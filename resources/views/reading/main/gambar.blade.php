@@ -116,11 +116,11 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="{{asset('img/'.$emosi.'/'.$seri.'0.jpg')}}" alt="Gambar" style="height:80vh;">
+                        <img src="{{asset('img/'.$emosi.'/'.$seriGambar.'0.jpg')}}" alt="Gambar" style="height:80vh;">
                     </div>
                     @for ($i = 1; $i < 8; $i++)
                         <div class="item">
-                            <img src="{{asset('img/'.$emosi.'/'.$seri.$i.'.jpg')}}" alt="Gambar" style="height:80vh;">
+                            <img src="{{asset('img/'.$emosi.'/'.$seriGambar.$i.'.jpg')}}" alt="Gambar" style="height:80vh;">
                         </div>
                     @endfor
                 </div>
