@@ -1,0 +1,67 @@
+
+.containers {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.columnss {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+  
+  /* If you want the content centered horizontally and vertically */
+  .centered {
+    margin-left: 46%;
+  }
+
+  .center{
+    margin-top: 5em;
+    margin-left: 10em;
+    margin-right: 10em;
+    margin-bottom: 5em;
+  }
+
+  .table{
+    width: 100%;
+  }
+
+  .textQuest{
+    font-size: 60px;
+  }
+
+  .th{
+    text-align: center;
+  }
+  td{
+    text-align: center;
+    width: 2.5em;
+  }
+
+  .button3 {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
