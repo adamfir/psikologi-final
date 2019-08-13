@@ -1,6 +1,6 @@
 @extends('layouts.custom1') 
 @section('title')
-    Instruksi Pretest
+    Instruksi Postest
 @endsection
 @section('styles')
     <style>
@@ -16,7 +16,7 @@
     </div>
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
         <div>
-            <h3>Instruksi Untuk Pretest dan Postest</h3>
+            <h3>Instruksi Untuk Postest</h3>
             <p>
                 1. Bacalah seri kata benda pada layar monitor, yang akan disajikan sekali secara singkat tanpa pengulangan. Cobalah untuk mengingat kata benda yang disajikan sesuai urutannya. 
             </p>
@@ -35,10 +35,10 @@
                 Apakah instruksi ini sudah cukup jelas dan dapat dipahami? Jika ada hal yang kurang jelas, silakan bertanya kepada peneliti.
             </p>
             <p>
-                Tekan tombol di bawah untuk melanjutkan dan memulai Pre-test (dengan ini anda telah bersedia untuk menjadi partisipan dalam penelitian ini).
+                Tekan tombol di bawah untuk melanjutkan dan memulai Post-test (dengan ini anda telah bersedia untuk menjadi partisipan dalam penelitian ini).
             </p>
             <div class="d-flex justify-content-end">
-                <a href="{{route('reading.pretest.fokus',['seri'=>0,'iterasi'=>0])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Lanjut ke Pre-test</button></a>
+                <a href="#"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Lanjut ke Post-test</button></a>
             </div>
         </div>
     </div>

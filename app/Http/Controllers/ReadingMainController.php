@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ReadingMainKontrolController extends Controller
+class ReadingMainController extends Controller
 {
     private $arrayKata;
     private $arrayPernyataan;
@@ -177,6 +177,7 @@ class ReadingMainKontrolController extends Controller
                 return redirect('/reading/main/fokus/seri/'.$seri.'/iterasi/'.$iterasi);
             }
             else{
+                return redirect('/reading/postest/');
                 dd('Redirect ke postest');
             }
         }
