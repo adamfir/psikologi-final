@@ -42,21 +42,20 @@
                 </center>
             </div>
             <div class="mySlides ">
-                <center><h1 >Dalam bagian latihan ini, soal latihan terdiri dari 2 item seri blok. Seri blok akan disajikan sekali saja pada layar monitor tanpa adanya pengulangan. Cobalah untuk mengingat blok yang disajikan.</h1></center>
+                <h1 style="text-align:justify">Dalam bagian latihan ini, soal latihan terdiri dari 2 item seri blok. Seri blok akan disajikan sekali saja pada layar monitor tanpa adanya pengulangan. Cobalah untuk mengingat blok yang disajikan.</h1></center>
             </div>
 
             <div class="mySlides ">
-                <center><h1 class="textQuest">Selanjutnya : </h1> <br> <br>
-                        <h3 >A.  Anda akan diminta untuk menjawab pertanyaan, apakah persamaan matematika sederhana itu benar atau salahfakta. </h2> <br><br>
-                        <h3 >Jika persamaan tersebut benar, maka Anda klik huruf B di bawah kalimat pertanyaan. </h2> <br><br>
-                        <h3 >Jika persamaan tersebut salah, maka Anda klik huruf S di bawah kalimat pertanyaan. </h2> <br><br>
-                </center>
+                <h1 class="textQuest">Selanjutnya : </h1> <br> <br>
+                <h3 style="text-align:justify">A.  Anda akan diminta untuk menjawab pertanyaan, apakah persamaan matematika sederhana itu benar atau salahfakta. </h2> <br><br>
+                <h3 style="text-align:justify">Jika persamaan tersebut benar, maka Anda klik huruf B di bawah kalimat pertanyaan. </h2> <br><br>
+                <h3 style="text-align:justify">Jika persamaan tersebut salah, maka Anda klik huruf S di bawah kalimat pertanyaan. </h2> <br><br>
             </div>
 
             <div class="mySlides ">
-            <center><h1 class="textQuest">Lalu : </h1> <br> <br>
-                        <h3 >Anda diminta untuk tapping dengan meng-klik blok sesuai urutan dengan <b> Tepat secara serial forward (maju) dan backward (mundur) </b> setelah Anda menjawab soal matematika</h2> <br><br>
-                </center>            </div>
+              <h1 class="textQuest">Lalu : </h1> <br> <br>
+                        <h3 style="text-align:justify">Anda diminta untuk tapping dengan meng-klik blok sesuai urutan dengan <b> Tepat secara serial forward (maju) dan backward (mundur) </b> setelah Anda menjawab soal matematika</h2> <br><br>
+              </div>
         </div>
     </div>
 </body>

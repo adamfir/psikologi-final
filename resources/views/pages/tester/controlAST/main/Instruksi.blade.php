@@ -42,31 +42,26 @@
                 </center>
             </div>
             <div class="mySlides ">
-                <center>
-                  <h1 >1. Perhatikan kemunculan blok pada layar monitor, yang akan disajikan sekali secara singkat tanpa pengulangan.</h1> <Br><Br>
-                  <h1 >Cobalah untuk mengingat urutan blok yang disajikan</h1> <Br><Br>
-                  <h1 >2. Setelah kata benda disajikan, akan ada soal matematika sederhana/</h1> <Br><Br>
-                </center>
+                  <h1 style="text-align:justify">1. Perhatikan kemunculan blok pada layar monitor, yang akan disajikan sekali secara singkat tanpa pengulangan.</h1> <Br><Br>
+                  <h1 style="text-align:justify">Cobalah untuk mengingat urutan blok yang disajikan</h1> <Br><Br>
+                  <h1 style="text-align:justify">2. Setelah kata benda disajikan, akan ada soal matematika sederhana/</h1> <Br><Br>
             </div>
 
             <div class="mySlides ">
-                <center><h1 class="textQuest">Selanjutnya : </h1> <br> <br>
-                        <h3 >A.  Anda akan diminta untuk menjawab pertanyaan, apakah persamaan matematika sederhana itu benar atau salahfakta. </h2> <br><br>
-                        <h3 >Jika persamaan tersebut benar, maka Anda klik huruf B di bawah kalimat pertanyaan. </h2> <br><br>
-                        <h3 >Jika persamaan tersebut salah, maka Anda klik huruf S di bawah kalimat pertanyaan. </h2> <br><br>
-                </center>
+                <h1 class="textQuest">Selanjutnya : </h1> <br> <br>
+                <h3 style="text-align:justify">A.  Anda akan diminta untuk menjawab pertanyaan, apakah persamaan matematika sederhana itu benar atau salahfakta. </h2> <br><br>
+                <h3 style="text-align:justify">Jika persamaan tersebut benar, maka Anda klik huruf B di bawah kalimat pertanyaan. </h2> <br><br>
+                <h3 style="text-align:justify">Jika persamaan tersebut salah, maka Anda klik huruf S di bawah kalimat pertanyaan. </h2> <br><br>
             </div>
 
             <div class="mySlides ">
-                <center><h1 class="textQuest">Lalu : </h1> <br> <br>
-                        <h3 >Anda diminta untuk tapping dengan meng-klik blok sesuai urutan dengan <b> Tepat secara serial forward (maju) dan backward (mundur) </b> setelah Anda menjawab soal matematika</h2> <br><br>
-                </center>            
+                <h1 class="textQuest">Lalu : </h1> <br> <br>
+                <h3 style="text-align:justify">Anda diminta untuk tapping dengan meng-klik blok sesuai urutan dengan <b> Tepat secara serial forward (maju) dan backward (mundur) </b> setelah Anda menjawab soal matematika</h2> <br><br>
             </div>
             <div class="mySlides ">
-                <center><h1 >Apakah instruksi ini sudah cukup jelas dan dapat dipahami? Jika ada hal yang kurang jelas, silakan bertanya kepada peneliti.</h1> <br> <br>
-                        <h1 >Tekan mouse untuk melanjutkan. (dengan menekan tombol mouse, berarti anda telah bersedia untuk menjadi partisipan dalam penelitian ini)</h1> <br><br>
-                        <button onClick="clickButton()" class="button3">Lanjutkan</button>
-                </center>
+                <h1 style="text-align:justify">Apakah instruksi ini sudah cukup jelas dan dapat dipahami? Jika ada hal yang kurang jelas, silakan bertanya kepada peneliti.</h1> <br> <br>
+                <h1 style="text-align:justify">Tekan mouse untuk melanjutkan. (dengan menekan tombol mouse, berarti anda telah bersedia untuk menjadi partisipan dalam penelitian ini)</h1> <br><br>
+                <button onClick="clickButton()" class="button3">Lanjutkan</button>
             </div>
         </div>
     </div>

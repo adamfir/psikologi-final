@@ -38,18 +38,15 @@
         <!-- Full-width images with number and caption text -->
             <div class="mySlides ">
                 <h1 class="textQuest">Instruksi : </h1> <br> <br>
-                <center>
-                  <h1 >Berikut adalah kata-kata yang mungkin menggambarkan mood yang Anda rasakan. Mohon tuliskan angka di samping setiap pernyataan untuk mengindikasikan  masing-masing perasaan tersebut Anda rasakan. Skala untuk mood yang biasanya Anda rasakan  dituliskan di sebelah kiri pernyataan, sedangkan skala mood yang  Anda rasakan saat ini dituliskan di sebelah kanan pernyataan.</h1> <Br><Br>
-                  <h1 >Anda dapat menuliskan angka dari 1 (tidak sama sekali atau sangat sedikit) hingga 5 ( sangat sesuai ) pada kotak di sebelah kiri tiap-tiap kata.</h1> <Br><Br>
-                  <h1 >Tidak ada jawaban benar atau salah. Jadi tulislah angka yang paling merefleksikan perasaan  diri Anda untuk setiap pernyataan.</h1> <Br><Br>
-                </center>
+                  <h1 style="text-align:justify">Berikut adalah kata-kata yang mungkin menggambarkan mood yang Anda rasakan. Mohon tuliskan angka di samping setiap pernyataan untuk mengindikasikan  masing-masing perasaan tersebut Anda rasakan. Skala untuk mood yang biasanya Anda rasakan  dituliskan di sebelah kiri pernyataan, sedangkan skala mood yang  Anda rasakan saat ini dituliskan di sebelah kanan pernyataan.</h1> <Br><Br>
+                  <h1 style="text-align:justify">Anda dapat menuliskan angka dari 1 (tidak sama sekali atau sangat sedikit) hingga 5 ( sangat sesuai ) pada kotak di sebelah kiri tiap-tiap kata.</h1> <Br><Br>
+                  <h1 style="text-align:justify">Tidak ada jawaban benar atau salah. Jadi tulislah angka yang paling merefleksikan perasaan  diri Anda untuk setiap pernyataan.</h1> <Br><Br>
             </div>
 
             <div class="mySlides ">
-                <center><h1 >Apakah instruksi ini sudah cukup jelas dan dapat dipahami? Jika ada hal yang kurang jelas, silakan bertanya kepada peneliti.</h1> <br> <br>
-                        <h1 >Tekan mouse untuk melanjutkan. (dengan menekan tombol mouse, berarti anda telah bersedia untuk menjadi partisipan dalam penelitian ini)</h1> <br><br>
+                <h1 style="text-align:justify">Apakah instruksi ini sudah cukup jelas dan dapat dipahami? Jika ada hal yang kurang jelas, silakan bertanya kepada peneliti.</h1> <br> <br>
+                        <h1 style="text-align:justify">Tekan mouse untuk melanjutkan. (dengan menekan tombol mouse, berarti anda telah bersedia untuk menjadi partisipan dalam penelitian ini)</h1> <br><br>
                         <button onClick="clickButton()" class="button3">Lanjutkan</button>
-                </center>
             </div>
         </div>
     </div>

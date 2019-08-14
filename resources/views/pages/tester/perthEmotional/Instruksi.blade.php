@@ -38,16 +38,13 @@
         <!-- Full-width images with number and caption text -->
             <div class="mySlides ">
                 <h1 class="textQuest">Instruksi : </h1> <br> <br>
-                <center>
-                  <h1 >Berilah skor untuk setiap pernyataan di bawah ini sesuai  atau tidak sesuai dengan bagaimana Anda  bereaksi  terhadap  peristiwa   emosional yang Anda alami, dengan cara melingkari salah satu jawaban! Skala untuk reaksi Anda pada umumnya (biasanya) terhadap pengalaman emosional di tulis di sebelah kiri pernyataan, sedangkan untuk skala reaksi Anda terhadap pengalaman emosional saat ini dituliskan di sebelah kanan pernyataan. </h1> <Br><Br>
-                </center>
+                  <h1 style="text-align:justify">Berilah skor untuk setiap pernyataan di bawah ini sesuai  atau tidak sesuai dengan bagaimana Anda  bereaksi  terhadap  peristiwa   emosional yang Anda alami, dengan cara melingkari salah satu jawaban! Skala untuk reaksi Anda pada umumnya (biasanya) terhadap pengalaman emosional di tulis di sebelah kiri pernyataan, sedangkan untuk skala reaksi Anda terhadap pengalaman emosional saat ini dituliskan di sebelah kanan pernyataan. </h1> <Br><Br>
             </div>
 
             <div class="mySlides ">
-                <center><h1 >Apakah instruksi ini sudah cukup jelas dan dapat dipahami? Jika ada hal yang kurang jelas, silakan bertanya kepada peneliti.</h1> <br> <br>
-                        <h1 >Tekan mouse untuk melanjutkan. (dengan menekan tombol mouse, berarti anda telah bersedia untuk menjadi partisipan dalam penelitian ini)</h1> <br><br>
-                        <button onClick="clickButton()" class="button3">Lanjutkan</button>
-                </center>
+                <h1 style="text-align:justify">Apakah instruksi ini sudah cukup jelas dan dapat dipahami? Jika ada hal yang kurang jelas, silakan bertanya kepada peneliti.</h1> <br> <br>
+                <h1 style="text-align:justify">Tekan mouse untuk melanjutkan. (dengan menekan tombol mouse, berarti anda telah bersedia untuk menjadi partisipan dalam penelitian ini)</h1> <br><br>
+                <button onClick="clickButton()" class="button3">Lanjutkan</button>
             </div>
         </div>
     </div>
