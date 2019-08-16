@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Recall;
+use App\JawabanPernyataan;
+use Illuminate\Support\Facades\Auth;
 
 class ReadingPretestController extends Controller
 {
@@ -58,13 +61,25 @@ class ReadingPretestController extends Controller
     public function pernyataan($seri,$iterasi){
         $pernyataan = $this->arrayPernyataan[$this->seri[$seri]][$iterasi];
         $next = 'reading.pretest.postPernyataan';
-        $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi, 'jawaban'=>'none'];
+        $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
         return view('reading.pretest.pernyataan', compact('pernyataan','next','nextParam','seri','iterasi'));
     }
-    public function postPernyataan($seri,$iterasi,$jawaban){
+    public function postPernyataan(Request $request,$seri,$iterasi){
+        // dd($request);
+        $jawaban = $request['jawaban'];
+        $time_left = (int) $request['time_left'];
         $result = ($jawaban == $this->arrayPernyataan[$this->seri[$seri]][$iterasi][1] ? true: false);
-        // dd($result);
-        // TODO: simpan hasil ke DB
+        $db = new JawabanPernyataan([
+            'user_id' => Auth::user()->id,
+            'test_category'=>'pre',
+            'is_true'=>$result,
+            'time_left'=>$time_left,
+            'seri'=>$this->seri[$seri]+1,
+            'iterasi'=>$iterasi+1
+        ]);
+        // dd($db,$time_left,$jawaban);
+        $db->save();
+        // DONE: simpan hasil ke DB
         return redirect('reading/pretest/recall/seri/'.$seri.'/iterasi/'.$iterasi);
     }
     public function recall($seri,$iterasi){
@@ -81,15 +96,28 @@ class ReadingPretestController extends Controller
         $kunciJawaban = array_map('strtolower',$kunciJawaban);
         $waktu = (int) $req->waktu;
         $benar = 0;
+        $salah = 0;
         // cek berapa kata yang benar
         for ($i=0; $i < count($kunciJawaban); $i++) {
             if(in_array($kunciJawaban[$i],$jawabanUser)){
                 $benar+=1;
             }
+            else{
+                $salah+=1;
+            }
         }
-        // dd($waktu,$benar);
-        // TODO: Save ke DB
-        
+        // DONE: Save ke DB
+        $db = new Recall([
+            'user_id' => Auth::user()->id,
+            'test_category'=>'pre',
+            'time'=>$waktu,
+            'seri'=>$this->seri[$seri]+1,
+            'iterasi'=>$iterasi+1,
+            'true_answer'=>$benar,
+            'false_answer'=>$salah,
+            'type'=>'free'
+        ]);
+        $db->save();
         // next route
         $iterasi+=1;
         if($iterasi>1){

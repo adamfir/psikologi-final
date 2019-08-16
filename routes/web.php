@@ -40,7 +40,7 @@ Route::prefix('/reading')->name('reading.')->group(function(){
         Route::get('/fokus/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@fokus')->name('fokus');
         Route::get('/kata/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@kata')->name('kata');
         Route::get('/pernyataan/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@pernyataan')->name('pernyataan');
-        Route::get('/pernyataan/seri/{seri}/iterasi/{iterasi}/jawab/{jawaban}', 'ReadingPretestController@postPernyataan')->name('postPernyataan');
+        Route::post('/pernyataan/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@postPernyataan')->name('postPernyataan');
         Route::get('/recall/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@recall')->name('recall');
         Route::post('/postRecall/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@postRecall')->name('postRecall');
     });
