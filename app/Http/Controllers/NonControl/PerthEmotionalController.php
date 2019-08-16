@@ -87,7 +87,7 @@ class PerthEmotionalController extends Controller
 
         $user = auth()->user();
 
-        return perthEmotionals::create([
+        perthEmotionals::create([
             'userId' => $user->id,
             'q10' => $request ->q10,
             'q11' => $request ->q11,
@@ -143,7 +143,7 @@ class PerthEmotionalController extends Controller
             'q180' => $request ->q180,
             'q181' => $request ->q181
         ]);
-
+        return view('pages/tester/perthEmotional/Finish');
         // return redirect()->route('tester.perthEmotional.instruksi');
     }
 }
