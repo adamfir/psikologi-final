@@ -20,18 +20,26 @@
     <div class="d-flex justify-content-center align-items-center lg-12 md-12 mb-12" style="height:92vh">
         <div id="pertanyaan" class="d-flex justify-content-between" style="width:100vw">
             <div>
-                {{-- <a href="{{route('reading.pretest.1.postPernyataan',['jawaban'=>'false'])}}"><button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>Salah</button></a> --}}
-                <a href="{{route($next,['seri'=>$seri,'iterasi'=>$iterasi,'jawaban'=>'false'])}}"><button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>Salah</button></a>
+                <button type="submit" class="btn btn-danger" btn-lg btn-block
+                    onclick="setJawaban('false')">Salah</button>
             </div>
             <div>
                 <h3>{{$pernyataan[0]}}.</h3>
             </div>
             <div>
-                <a href="{{route($next,['seri'=>$seri,'iterasi'=>$iterasi,'jawaban'=>'true'])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Benar</button></a>
+                {{-- <a href="{{route($next,['seri'=>$seri,'iterasi'=>$iterasi,'jawaban'=>'true'])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Benar</button></a> --}}
+                <button type="submit" class="btn btn-primary" btn-lg btn-block
+                    onclick="setJawaban('true')">Benar</button>
             </div>
         </div>
     </div>
 </div>
+<form action="{{route($next,['seri'=>$seri,'iterasi'=>$iterasi])}}" method="post">
+    @csrf
+    <input type="hidden" name="time_left" id="time_left" value="0">
+    <input type="hidden" name="jawaban" id="jawaban" value="default">
+    <button type="submit" id="submit_form"></button>
+</form>
 @endsection
 
 @section('scripts')
@@ -44,12 +52,13 @@
 
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
-
+            document.getElementById('time_left').value=seconds;
             display.textContent = minutes + ":" + seconds;
 
             if (--timer < 0) {
                 timer = 0;
-                window.location.href = @json(route($next,$nextParam));
+                document.getElementById('submit_form').click();
+                // window.location.href = @json(route($next,$nextParam));
             }
         }, 1000);
     }
@@ -59,5 +68,10 @@
             display = document.querySelector('#time');
         startTimer(time, display);
     };
+    function setJawaban(jawaban){
+        var input = document.getElementById('jawaban');
+        input.value = jawaban;
+        document.getElementById('submit_form').click();
+    }
     </script>
 @endsection

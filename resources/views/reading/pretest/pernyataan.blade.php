@@ -11,7 +11,7 @@ Pernyataan
 <div class="container">
     <div class="d-flex justify-content-between align-items-end lg-12 md-12 mb-12" style="height:8vh">
         <div>
-            <h5>Waktu: <span id="time">00</span> detik</h5>
+            <h5>Waktu: <span id="time">00:00</span></h5>
         </div>
         <div>
             <p>{{Auth::user()->name}}</p>
@@ -47,13 +47,13 @@ Pernyataan
     function startTimer(duration, display) {
         var timer = duration, minutes, seconds;
         setInterval(function () {
-            // minutes = parseInt(timer / 60, 10)
+            minutes = parseInt(timer / 60, 10)
             seconds = parseInt(timer % 60, 10);
 
-            // minutes = minutes < 10 ? "0" + minutes : minutes;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
             document.getElementById('time_left').value=seconds;
-            // display.textContent = minutes + ":" + seconds;
+            display.textContent = minutes + ":" + seconds;
             display.textContent = seconds;
 
             if (--timer < 0) {

@@ -51,7 +51,7 @@ Route::prefix('/reading')->name('reading.')->group(function(){
         Route::get('/gambar/seri/{seri}/iterasi/{iterasi}', 'ReadingMainController@gambar')->name('gambar');
         Route::get('/kata/seri/{seri}/iterasi/{iterasi}', 'ReadingMainController@kata')->name('kata');
         Route::get('/pernyataan/seri/{seri}/iterasi/{iterasi}', 'ReadingMainController@pernyataan')->name('pernyataan');
-        Route::get('/postPernyataan/seri/{seri}/iterasi/{iterasi}/jawaban/{jawaban}', 'ReadingMainController@postPernyataan')->name('postPernyataan');
+        Route::post('/postPernyataan/seri/{seri}/iterasi/{iterasi}', 'ReadingMainController@postPernyataan')->name('postPernyataan');
         Route::get('/free-recall/seri/{seri}/iterasi/{iterasi}','ReadingMainController@freeRecall')->name('freeRecall');
         Route::post('/free-recall/seri/{seri}/iterasi/{iterasi}','ReadingMainController@postFreeRecall')->name('postFreeRecall');
         Route::get('/serial-recall/seri/{seri}/iterasi/{iterasi}','ReadingMainController@serialRecall')->name('serialRecall');

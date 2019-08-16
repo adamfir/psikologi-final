@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\JawabanPernyataan;
+use App\Recall;
+use Illuminate\Support\Facades\Session;
 
 class ReadingMainController extends Controller
 {
@@ -65,7 +68,7 @@ class ReadingMainController extends Controller
     }
     public function fokus($seri,$iterasi){
         $type = Auth::user()->type;
-        if($type=="eksperimen" && $iterasi == 0 && $seri > 1){
+        if($type>0 && $iterasi == 0 && $seri > 1){
             $next = 'reading.main.gambar';
             $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
             // return redirect('reading/main/gambar/seri/'.$seri.'/iterasi/'.$iterasi);
@@ -84,7 +87,10 @@ class ReadingMainController extends Controller
     public function gambar($seri,$iterasi){
         $next = 'reading.main.fokus2';
         $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
-        $emosi = 'positif'; //Auth::user()->emosi;
+        $emosi = 'netral'; //Auth::user()->emosi;
+        // dd(Auth::user()->type);
+        if(Auth::user()->type == 2) $emosi = 'positif';
+        if(Auth::user()->type == 3) $emosi = 'negatif';
         $seriGambar = $seri-2;
         return view('reading.main.gambar', compact('next','nextParam','seri','iterasi','emosi','seriGambar'));
     }
@@ -106,12 +112,21 @@ class ReadingMainController extends Controller
         $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi, 'jawaban'=>'none'];
         return view('reading.main.pernyataan', compact('next','nextParam','pernyataan','seri','iterasi'));
     }
-    public function postPernyataan($seri,$iterasi,$jawaban){
-        // if($seri == 0){
-        // }
+    public function postPernyataan(Request $request,$seri,$iterasi){
+        $jawaban = $request['jawaban'];
+        $time_left = (int) $request['time_left'];
         $result = ($jawaban == $this->arrayPernyataan[$this->seri[$seri]][$iterasi][1] ? true: false);
-        // dd($result);
-        // TODO: simpan hasil ke DB
+        $db = new JawabanPernyataan([
+            'user_id' => Auth::user()->id,
+            'test_category'=>'main',
+            'is_true'=>$result,
+            'time_left'=>$time_left,
+            'seri'=>$this->seri[$seri]+1,
+            'iterasi'=>$iterasi+1
+        ]);
+        // DONE: simpan hasil ke DB
+        $db->save();
+        Session::put('mainHasilPernyataan',$result);
         return redirect('reading/main/free-recall/seri/'.$seri.'/iterasi/'.$iterasi);
     }
     public function freeRecall($seri,$iterasi){
@@ -128,15 +143,39 @@ class ReadingMainController extends Controller
         $kunciJawaban = array_map('strtolower',$kunciJawaban);
         $waktu = (int) $req->waktu;
         $benar = 0;
+        $salah = 0;
         // cek berapa kata yang benar FREE RECALL
         for ($i=0; $i < count($kunciJawaban); $i++) {
             if(in_array($kunciJawaban[$i],$jawabanUser)){
                 $benar+=1;
             }
+            else{
+                $salah+=1;
+            }
         }
-        // dd($benar,$waktu);
-        // TODO: Save ke DB
-        
+        Session::put('mainHasilFreeRecall',[$benar,$salah]);
+        // dd([
+        //     'user_id' => Auth::user()->id,
+        //     'test_category'=>'main',
+        //     'time'=>$waktu,
+        //     'seri'=>$this->seri[$seri]+1,
+        //     'iterasi'=>$iterasi+1,
+        //     'true_answer'=>$benar,
+        //     'false_answer'=>$salah,
+        //     'type'=>'free'
+        // ]);
+        // DONE: Save ke DB
+        $db = new Recall([
+            'user_id' => Auth::user()->id,
+            'test_category'=>'main',
+            'time'=>$waktu,
+            'seri'=>$this->seri[$seri]+1,
+            'iterasi'=>$iterasi+1,
+            'true_answer'=>$benar,
+            'false_answer'=>$salah,
+            'type'=>'free'
+        ]);
+        $db->save();
         // lanjut ke serial recall
         return redirect('reading/main/serial-recall/seri/'.$seri.'/iterasi/'.$iterasi);
     }
@@ -153,17 +192,32 @@ class ReadingMainController extends Controller
         $kunciJawaban = $this->arrayKata[$this->seri[$seri]][$iterasi];
         $kunciJawaban = array_map('strtolower',$kunciJawaban);
         $waktu = (int) $req->waktu;
-        $benar = 0;
+        $benar = $salah = 0;
         for ($i=0; $i < count($kunciJawaban); $i++) { 
             if($kunciJawaban[$i] == $jawabanUser[$i]){
                 $benar+=1;
+            }
+            else{
+                $salah+=1;
             }
         }
         $hasil = 0;
         if($benar == count($kunciJawaban)){
             $hasil = 1;
         }
-        // dd($benar,$hasil,$waktu);
+        // Simpan ke DB
+        $db = new Recall([
+            'user_id' => Auth::user()->id,
+            'test_category'=>'main',
+            'time'=>$waktu,
+            'seri'=>$this->seri[$seri]+1,
+            'iterasi'=>$iterasi+1,
+            'true_answer'=>$hasil, // karena serial harus benar semua, jadi nilai benar dan salah hanya 0 atau 1
+            'false_answer'=>1-$hasil,
+            'type'=>'serial'
+        ]);
+        $db->save();
+        Session::put('mainHasilSerialRecall',[$benar,$salah]);
         if($seri<2){
             return redirect('/reading/main/skor/seri/'.$seri.'/iterasi/'.$iterasi);
         }
@@ -188,6 +242,7 @@ class ReadingMainController extends Controller
             $seri += 1;
             $iterasi = 0;
         }
+        // dd(Session::get('mainHasilFreeRecall')[0]+Session::get('mainHasilFreeRecall')[1]);
         $next = 'reading.main.fokus';
         $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
         // dd($next,$nextParam);
