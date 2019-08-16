@@ -63,7 +63,7 @@
                 <h1><b>???</b></h1>
             </div>
             <div class="animateInput">
-                <form action="{{route($next,$nextParam)}}" method="post">
+                <form action="{{route('reading.postest.recall.post')}}" method="post">
                     @csrf
                     @for ($i = 0; $i < $jumlahKata; $i++)
                         <div class="input-group mb-3">

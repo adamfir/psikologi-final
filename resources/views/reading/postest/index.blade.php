@@ -38,7 +38,7 @@
                 Tekan tombol di bawah untuk melanjutkan dan memulai Post-test (dengan ini anda telah bersedia untuk menjadi partisipan dalam penelitian ini).
             </p>
             <div class="d-flex justify-content-end">
-                <a href="#"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Lanjut ke Post-test</button></a>
+                <a href="{{route('reading.postest.start')}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Lanjutkan</button></a>
             </div>
         </div>
     </div>

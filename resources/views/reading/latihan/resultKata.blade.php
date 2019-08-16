@@ -50,31 +50,49 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
-        <div style="text-align:left">
-            <div>
-                <h4>Skor free recall</h4>
-                <table>
-                    <thead>
-                        <th>Seri 3</th>
-                        <th>Seri 4</th>
-                    </thead>
-                    <tbody>
-                        @for ($seri3 = session('hasilFreeRecall3'), $seri4 = session('hasilFreeRecall4'), $i=0; $i < 3; $i++)
-                            <tr>
-                                <td>{{$seri3[$i]}}</td>
-                                <td>{{$seri4[$i]}}</td>
-                            </tr>
-                        @endfor
-                    </tbody>
-                </table>
-                {{-- @foreach (session('hasilFreeRecall3') as $item) {{$item/3*100}} @endforeach --}}
-            {{-- </div> 
-            <h2>Skor serial recall anda adalah sebagai berikut :</h2> 
-            @foreach (session('hasilSerialRecall3') as $item)
-                <p>{{$item/3*100}}</p>
-            @endforeach --}}
+        <div style="text-align:center">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Skor Free Recall</h4>
+                    <table class="table">
+                        <thead>
+                            <th scope="col">Iterasi</th>
+                            <th scope="col">Seri 3</th>
+                            <th scope="col">Seri 4</th>
+                        </thead>
+                        <tbody>
+                            @for ($seri3 = session('hasilFreeRecall3'), $seri4 = session('hasilFreeRecall4'), $i=0; $i < 3; $i++)
+                                <tr>
+                                    <th scope="row">{{$i+1}}</th>
+                                    <td>{{$seri3[$i]}}</td>
+                                    <td>{{$seri4[$i]}}</td>
+                                </tr>
+                            @endfor
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h4>Skor Serial Recall</h4>
+                    <table class="table">
+                        <thead>
+                            <th scope="col">Iterasi</th>
+                            <th scope="col">Seri 3</th>
+                            <th scope="col">Seri 4</th>
+                        </thead>
+                        <tbody>
+                            @for ($seri3 = session('hasilSerialRecall3'), $seri4 = session('hasilSerialRecall4'), $i=0; $i < 3; $i++)
+                                <tr>
+                                    <th scope="row">{{$i+1}}</th>
+                                    <td>{{$seri3[$i]}}</td>
+                                    <td>{{$seri4[$i]}}</td>
+                                </tr>
+                            @endfor
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <br>
-            <a href="{{route('reading.latihan.kata.display')}}"><button class="btn btn-primary">LANJUTKAN</button></a>
+            <a href="{{route('reading.latihan.pernyataan.deskripsi')}}"><button class="btn btn-primary">LANJUTKAN</button></a>
         </div>
     </div>
 </div>

@@ -1,41 +1,9 @@
 @extends('layouts.custom1') 
 @section('title')
-    Pretest
+    Pernyataan
 @endsection
 @section('styles')
     <style>
-        @keyframes fadeInOut {
-            0% {
-                opacity: 0;
-            }
-
-            45% {
-                opacity: 1;
-            }
-
-            100% {
-                opacity: 0%;
-            }
-        }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            75% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-        .animate{
-            top: 0vh;
-            z-index: 1;
-            opacity: 0;
-            animation-name: fadeInOut;
-            animation-duration: 3s;
-            font-size: 100pt;
-        }
 
     </style>
 @endsection
@@ -45,14 +13,20 @@
         <div>
             <h5>Waktu: <span id="time">00:00</span></h5>
         </div>
-        <div>
+        {{-- <div>
             <p>{{Auth::user()->name}}</p>
-        </div>
+        </div> --}}
     </div>
-    <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
-        <div style="text-align:center">
-            <div class="animate">
-                +
+    <div class="d-flex justify-content-center align-items-center lg-12 md-12 mb-12" style="height:92vh">
+        <div id="pertanyaan" class="d-flex justify-content-between" style="width:100vw">
+            <div>
+                <a href="{{route($next,['jawaban'=>'false'])}}"><button type="button" name="" id="" class="btn btn-danger" btn-lg btn-block>Salah</button></a>
+            </div>
+            <div>
+                <h3>{{$pernyataan[0]}}.</h3>
+            </div>
+            <div>
+                <a href="{{route($next,['jawaban'=>'true'])}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Benar</button></a>
             </div>
         </div>
     </div>
@@ -74,13 +48,13 @@
 
             if (--timer < 0) {
                 timer = 0;
-                window.location.href = @json(route($next));
+                window.location.href = @json(route($next,'null'));
             }
         }, 1000);
     }
 
     window.onload = function () {
-        var time = 2,
+        var time = 8,
             display = document.querySelector('#time');
         startTimer(time, display);
     };

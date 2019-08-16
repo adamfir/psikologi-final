@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Auth::routes();
@@ -31,6 +31,10 @@ Route::prefix('/reading')->name('reading.')->group(function(){
         Route::get('/kata/serial-recall', 'IndexController@serialRecall')->name('kata.serial.recall');
         Route::post('/kata/serial-recall', 'IndexController@postSerialRecall')->name('post.kata.serial.recall');
         Route::get('/kata/result', 'IndexController@resultKata')->name('kata.result');
+        Route::get('/pernyataan/deskripsi', 'IndexController@deskipsiSeriPernyataan')->name('pernyataan.deskripsi');
+        Route::get('/pernyataan', 'IndexController@displayPernyataan')->name('pernyataan.display');
+        Route::get('/pernyataan/{jawaban}', 'IndexController@jawabanPernyataan')->name('pernyataan.jawaban');
+        Route::get('/pernyataan-result', 'IndexController@resultPernyataan')->name('pernyataan.result');
     });
     Route::prefix('/pretest')->name('pretest.')->group(function(){
         Route::get('/fokus/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@fokus')->name('fokus');
@@ -56,5 +60,11 @@ Route::prefix('/reading')->name('reading.')->group(function(){
     });
     Route::prefix('/postest')->name('postest.')->group(function(){
         Route::get('/', 'ReadingPostestController@index')->name('index');
+        Route::get('/start', 'ReadingPostestController@start')->name('start');
+        Route::get('/kata', 'ReadingPostestController@kata')->name('kata');
+        Route::get('/pernyataan', 'ReadingPostestController@pernyataan')->name('pernyataan');
+        Route::get('/pernyataan/jawab/{jawaban}', 'ReadingPostestController@jawabPernyataan')->name('pernyataan.jawab');
+        Route::get('/recall', 'ReadingPostestController@freeRecall')->name('recall');
+        Route::post('/recall', 'ReadingPostestController@postFreeRecall')->name('recall.post');
     });
 });

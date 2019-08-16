@@ -50,11 +50,12 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
-        <div style="text-align:center">
-            <h2>Dalam bagian latihan ini, soal latihan terdiri dari 2 item seri kata. <br> 
-                Seri kata benda akan disajikan sekali saja pada layar monitor tanpa adanya pengulangan.
-                Cobalah untuk mengingat kata benda yang disajikan. </h2> <br>
-            <a href="{{route('reading.latihan.kata.display')}}"><button class="btn btn-primary">LANJUTKAN</button></a>
+        <div style="text-align:left">
+            <h1>Latihan : Pilihlah pernyataan yang benar.</h1><br>
+            <h2>Akan ditampilkan sebuah pernyataan, anda harus memilih apakah pernyataan tersebut benar atau salah.</h2><br>
+            <h2>Jika sesuai dengan fakta, maka Anda pilih <b>Benar</b> dengan <b>menekan tombol Benar di sebelah kanan kalimat pertanyaan.</b></h2><br>
+            <h2>Jika tidak sesuai dengan fakta, maka Anda pilih <b>Salah</b> dengan <b>menekan tombol Salah di sebelah kiri kalimat pertanyaan.</b></b></h2><br>
+            <a href="{{route('reading.latihan.pernyataan.display')}}"><button class="btn btn-primary">LANJUTKAN</button></a>
         </div>
     </div>
 </div>

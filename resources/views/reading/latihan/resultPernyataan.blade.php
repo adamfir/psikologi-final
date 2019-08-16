@@ -1,6 +1,6 @@
 @extends('layouts.custom1') 
 @section('title')
-    Latihan
+    Result
 @endsection
 @section('styles')
     <style>
@@ -51,10 +51,25 @@
     </div>
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
         <div style="text-align:center">
-            <h2>Dalam bagian latihan ini, soal latihan terdiri dari 2 item seri kata. <br> 
-                Seri kata benda akan disajikan sekali saja pada layar monitor tanpa adanya pengulangan.
-                Cobalah untuk mengingat kata benda yang disajikan. </h2> <br>
-            <a href="{{route('reading.latihan.kata.display')}}"><button class="btn btn-primary">LANJUTKAN</button></a>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Skor Latihan Pernyataan</h4>
+                    <table class="table">
+                        <thead>
+                            <th scope="col">Total Pernyataan</th>
+                            <th scope="col">Benar</th>
+                            <th scope="col">Salah</th>
+                        </thead>
+                        <tbody>
+                            <td>{{session('iterasiLatihanPernyataan')+1}}</td>
+                            <td>{{session('pernyataanBenar')}}</td>
+                            <td>{{session('pernyataanSalah')}}</td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <a href="{{route('reading.main')}}"><button class="btn btn-primary">LANJUTKAN</button></a>
         </div>
     </div>
 </div>

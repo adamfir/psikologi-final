@@ -129,7 +129,7 @@
 
             if (--timer < 0) {
                 timer = 0;
-                window.location.href = @json(route($next,$nextParam));
+                window.location.href = @json(route($next));
             }
         }, 1000);
     }

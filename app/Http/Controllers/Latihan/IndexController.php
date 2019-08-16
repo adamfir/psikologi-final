@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Latihan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Symfony\Component\HttpFoundation\Session\Session as SymfonySession;
 
 class IndexController extends Controller
 {
@@ -20,6 +21,13 @@ class IndexController extends Controller
                 ['Rumah', 'Sendal', 'Kursi', 'Panci'],
                 ['Tali', 'Telur', 'Tembok', 'Topi']
             ]
+        ];
+        $this->arrayPernyataan = [
+            ['Timor Leste ada di benua Asia','true'],
+            ['Gajah berbelalai panjang','true'],
+            ['Ikan hanya hidup di air tawar','false'],
+            ['Indonesia termasuk negara ASEAN','true'],
+            ['Semua unggas bisa terbang','false']
         ];
     }
     public function index(){
@@ -102,5 +110,55 @@ class IndexController extends Controller
     public function resultKata()
     {
         return view('reading.latihan.resultKata');
+    }
+    public function deskipsiSeriPernyataan(){
+        return view('reading.latihan.deskripsiSeriPernyataan');
+    }
+    public function displayPernyataan(){
+        if(Session::has('iterasiLatihanPernyataan')==false){
+            // Session::put('seriLatihanPernyataan',0);
+            Session::put('iterasiLatihanPernyataan',0);
+        }
+        $iterasi = Session::get('iterasiLatihanPernyataan');
+        // $seri = Session::get('seriLatihanKata');
+        $pernyataan = $this->arrayPernyataan[$iterasi];
+        $next = 'reading.latihan.pernyataan.jawaban';
+        return view('reading.latihan.pernyataan',compact('pernyataan','next'));
+    }
+    public function jawabanPernyataan($jawaban){
+        $iterasi = Session::get('iterasiLatihanPernyataan');
+        $pernyataan = $this->arrayPernyataan[$iterasi];
+        $totalBenar = null;
+        $totalSalah = null;
+        if($iterasi == 0){
+            $totalBenar = $totalSalah = 0;
+        }
+        else{
+            $totalBenar = Session::get('pernyataanBenar');
+            $totalSalah = Session::get('pernyataanSalah');
+        }
+        if($pernyataan[1]===$jawaban){
+            $totalBenar+=1;
+        }
+        else{
+            $totalSalah+=1;
+        }
+        Session::put('pernyataanBenar',$totalBenar);
+        Session::put('pernyataanSalah',$totalSalah);
+        if($iterasi<4){
+            Session::put('iterasiLatihanPernyataan',$iterasi+1);
+            $next = 'reading.latihan.pernyataan.display';
+            return view('reading.latihan.focus',compact('next'));
+        }
+        else{
+            return redirect()->route('reading.latihan.pernyataan.result');
+        }
+    }
+    public function resultPernyataan(){
+        $iterasi = Session::get('iterasiLatihanPernyataan');
+        $benar = Session::get('pernyataanBenar');
+        $salah = Session::get('pernyataanSalah');
+        // dd($iterasi,$benar,$salah);
+        return view('reading.latihan.resultPernyataan');
     }
 }
