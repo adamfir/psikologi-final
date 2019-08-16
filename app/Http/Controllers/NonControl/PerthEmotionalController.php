@@ -143,7 +143,12 @@ class PerthEmotionalController extends Controller
             'q180' => $request ->q180,
             'q181' => $request ->q181
         ]);
-        return view('pages/tester/perthEmotional/Finish');
         // return redirect()->route('tester.perthEmotional.instruksi');
+    }
+
+
+    public function finish(){
+
+        return view('pages/tester/perthEmotional/Finish');
     }
 }

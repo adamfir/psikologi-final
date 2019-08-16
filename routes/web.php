@@ -90,6 +90,7 @@ Route::prefix('tester')->name('tester.')->group(function(){
         Route::get('/instruksi', 'PerthEmotionalController@instruksi')->name('instruksi');
         Route::get('/question', 'PerthEmotionalController@question')->name('question');
         Route::post('/post', 'PerthEmotionalController@post')->name('perthEmotionalPost');
+        Route::get('/finish', 'PerthEmotionalController@finish')->name('finish');
     });
 
     Route::prefix('control')->name('control')->group(function(){
