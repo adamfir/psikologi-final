@@ -64,8 +64,8 @@ class ReadingMainController extends Controller
         return view('reading.main.index');
     }
     public function fokus($seri,$iterasi){
-        $jenisUser = Auth::user()->jenisUser;
-        if($jenisUser=="eksperimen" && $iterasi == 0 && $seri > 1){
+        $type = Auth::user()->type;
+        if($type=="eksperimen" && $iterasi == 0 && $seri > 1){
             $next = 'reading.main.gambar';
             $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
             // return redirect('reading/main/gambar/seri/'.$seri.'/iterasi/'.$iterasi);

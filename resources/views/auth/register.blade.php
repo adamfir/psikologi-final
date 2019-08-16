@@ -25,14 +25,14 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="jenisUser" class="col-md-4 col-form-label text-md-right">{{ __('Jenis User') }}</label>
+                            <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Jenis User') }}</label>
 
                             <div class="col-md-6">
-                                <input id="jenisUser" type="text" class="form-control{{ $errors->has('jenisUser') ? ' is-invalid' : '' }}" name="jenisUser" value="{{ old('jenisUser') }}" required autofocus>
+                                <input id="type" type="text" class="form-control{{ $errors->has('type') ? ' is-invalid' : '' }}" name="type" value="{{ old('type') }}" required autofocus>
 
-                                @if ($errors->has('jenisUser'))
+                                @if ($errors->has('type'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('jenisUser') }}</strong>
+                                        <strong>{{ $errors->first('type') }}</strong>
                                     </span>
                                 @endif
                             </div>
