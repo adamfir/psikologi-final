@@ -63,7 +63,7 @@ Route::prefix('/reading')->name('reading.')->group(function(){
         Route::get('/start', 'ReadingPostestController@start')->name('start');
         Route::get('/kata', 'ReadingPostestController@kata')->name('kata');
         Route::get('/pernyataan', 'ReadingPostestController@pernyataan')->name('pernyataan');
-        Route::get('/pernyataan/jawab/{jawaban}', 'ReadingPostestController@jawabPernyataan')->name('pernyataan.jawab');
+        Route::post('/pernyataan', 'ReadingPostestController@jawabPernyataan')->name('pernyataan.jawab');
         Route::get('/recall', 'ReadingPostestController@freeRecall')->name('recall');
         Route::post('/recall', 'ReadingPostestController@postFreeRecall')->name('recall.post');
     });

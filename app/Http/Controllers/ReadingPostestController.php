@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use App\Recall;
+use Illuminate\Support\Facades\Auth;
+use App\JawabanPernyataan;
 
 class ReadingPostestController extends Controller
 {
@@ -69,13 +72,21 @@ class ReadingPostestController extends Controller
         $nextParam = ['jawaban'=>'null'];
         return view('reading.postest.pernyataan',compact('pernyataan','kata','next','nextParam'));
     }
-    public function jawabPernyataan($jawaban){
+    public function jawabPernyataan(Request $request){
         $seri = Session::get('seriPost');
         $iterasi = Session::get('iterasiPost');
-        $pernyataan = $this->arrayPernyataan[$this->seri[$seri]][$iterasi];
-        $benar = ($pernyataan[1]==$jawaban?true:false);
-        // dd($benar);
-        // dd($benar);
+        $jawaban = $request['jawaban'];
+        $time_left = (int) $request['time_left'];
+        $result = ($jawaban == $this->arrayPernyataan[$this->seri[$seri]][$iterasi][1] ? true: false);
+        $db = new JawabanPernyataan([
+            'user_id' => Auth::user()->id,
+            'test_category'=>'post',
+            'is_true'=>$result,
+            'time_left'=>$time_left,
+            'seri'=>$this->seri[$seri]+1,
+            'iterasi'=>$iterasi+1
+        ]);
+        $db->save();
         return redirect()->route('reading.postest.recall');
     }
     public function freeRecall(){
@@ -93,15 +104,29 @@ class ReadingPostestController extends Controller
         $kunciJawaban = $this->arrayKata[$this->seri[$seri]][$iterasi];
         $kunciJawaban = array_map('strtolower',$kunciJawaban);
         $waktu = (int) $request->waktu;
-        $benar = 0;
+        $benar = $salah = 0;
         // cek berapa kata yang benar
         for ($i=0; $i < count($kunciJawaban); $i++) {
             if(in_array($kunciJawaban[$i],$jawabanUser)){
                 $benar+=1;
             }
+            else{
+                $salah+=1;
+            }
         }
         // dd($waktu,$benar);
         // TODO: Save ke DB, jangan lupa seri dan iterasinya yang sesungguhnya
+        $db = new Recall([
+            'user_id' => Auth::user()->id,
+            'test_category'=>'post',
+            'time'=>$waktu,
+            'seri'=>$this->seri[$seri]+1,
+            'iterasi'=>$iterasi+1,
+            'true_answer'=>$benar,
+            'false_answer'=>$salah,
+            'type'=>'free'
+        ]);
+        $db->save();
         $iterasi += 1;
         if($iterasi>1){
             $seri+=1;
