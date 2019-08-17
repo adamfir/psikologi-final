@@ -48,7 +48,7 @@
 
             <div class="mySlides ">
                 <h1 class="textQuest">Selanjutnya : </h1> <br> <br>
-                <h3 style="text-align:justify">A.  Anda akan diminta untuk menjawab pertanyaan, apakah persamaan matematika sederhana itu benar atau salahfakta. </h2> <br><br>
+                <h3 style="text-align:justify">Anda akan diminta untuk menjawab pertanyaan, apakah persamaan matematika sederhana itu benar atau salahfakta. </h2> <br><br>
                 <h3 style="text-align:justify">Jika persamaan tersebut benar, maka Anda klik huruf B di bawah kalimat pertanyaan. </h2> <br><br>
                 <h3 style="text-align:justify">Jika persamaan tersebut salah, maka Anda klik huruf S di bawah kalimat pertanyaan. </h2> <br><br>
             </div>

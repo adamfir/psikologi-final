@@ -42,9 +42,9 @@
                 </center>
             </div>
             <div class="mySlides ">
-                  <h1 style="text-align:justify">1. Perhatikan kemunculan blok pada layar monitor, yang akan disajikan sekali secara singkat tanpa pengulangan.</h1> <Br><Br>
+                  <h1 style="text-align:justify">Perhatikan kemunculan blok pada layar monitor, yang akan disajikan sekali secara singkat tanpa pengulangan.</h1> <Br><Br>
                   <h1 style="text-align:justify">Cobalah untuk mengingat urutan blok yang disajikan</h1> <Br><Br>
-                  <h1 style="text-align:justify">2. Setelah kata benda disajikan, akan ada soal matematika sederhana</h1> <Br><Br>
+                  <h1 style="text-align:justify">Setelah kata benda disajikan, akan ada soal matematika sederhana</h1> <Br><Br>
             </div>
 
             <div class="mySlides ">

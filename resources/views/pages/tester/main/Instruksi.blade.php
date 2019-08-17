@@ -43,14 +43,14 @@
             </div>
 
             <div class="mySlides ">
-                  <h1 style="text-align:justify">1. Perhatikan kemunculan blok pada layar monitor, yang akan disajikan sekali secara singkat tanpa pengulangan.</h1> <Br><Br>
+                  <h1 style="text-align:justify">Perhatikan kemunculan blok pada layar monitor, yang akan disajikan sekali secara singkat tanpa pengulangan.</h1> <Br><Br>
                   <h1 style="text-align:justify">Cobalah untuk mengingat urutan blok yang disajikan</h1> <Br><Br>
-                  <h1 style="text-align:justify">2. Setelah kata benda disajikan, akan ada soal matematika sederhana/</h1> <Br><Br>
+                  <h1 style="text-align:justify">Setelah kata benda disajikan, akan ada soal matematika sederhana/</h1> <Br><Br>
             </div>
 
             <div class="mySlides ">
                 <h1 class="textQuest">Selanjutnya : </h1> <br> <br>
-                <h3 style="text-align:justify">A.  Anda akan diminta untuk menjawab pertanyaan, apakah persamaan matematika sederhana itu benar atau salahfakta. </h2> <br><br>
+                <h3 style="text-align:justify">Anda akan diminta untuk menjawab pertanyaan, apakah persamaan matematika sederhana itu benar atau salahfakta. </h2> <br><br>
                 <h3 style="text-align:justify">Jika persamaan tersebut benar, maka Anda klik huruf B di bawah kalimat pertanyaan. </h2> <br><br>
                 <h3 style="text-align:justify">Jika persamaan tersebut salah, maka Anda klik huruf S di bawah kalimat pertanyaan. </h2> <br><br>
             </div>
