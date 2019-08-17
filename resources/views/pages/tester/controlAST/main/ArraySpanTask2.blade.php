@@ -96,7 +96,7 @@
                 console.log("benar");
                 id2 = 1;
             }
-            var total = total + detikBefore;
+            total = total + detikBefore;
             window.location = "/tester/control/main/focus/"+seri +"/"+iterasi + "/" + <?= $id ?> + "/" + <?= $id1 ?> + "/" + id2 + "/" + total;
         }
     }

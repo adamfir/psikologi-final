@@ -46,6 +46,7 @@
         var iterasi = <?= $iterasi ?>;
         var seri = <?= $seri ?>;
         var picts = <?php echo json_encode($picts); ?>;
+        var type = <?= $type ?>;
 
         function startTimer(duration, display) {
         var modal = document.getElementById('myModal');
@@ -129,9 +130,19 @@ function showSlides() {
   var positif = "Positif/Faces/";
   var neutral = "Neutral/neutralOne";
 
+  if(type == 1){
+      root = "/emotional/Neutral/neutralOne/"
+  }
+  else if(type== 2){
+      root = "/emotional/Positif/Animal/"
+  }
+  else if(type == 3){
+      root = "/emotional/Negatif/Animal"
+  }
+
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none"; 
-    imgs[i].src = root + negatif + picts[seri][i] +".jpg";
+    imgs[i].src = root + picts[seri][i] +".jpg";
   }
   slideIndex++;
   if (slideIndex > slides.length) {slideIndex = 1} 

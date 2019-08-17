@@ -127,13 +127,14 @@ class ControlArraySpanTaskMainController extends Controller
         $pict = [[], [], [1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12], [13, 14]];
         $picts = [[], [], [1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16, 17], [18, 19, 20, 21, 22], [23, 24, 25, 26], [27, 28, 29, 30], [31, 32, 33, 34]];
         $user = auth()->user();
+        $type = $user->type;
         $negatif = "Negatif/Animal/";
         $positif= "Positif/Animal/";
         $neutral = "Neutral/neutralOne";
     
-        $root = "/emotional/". $negatif .$pict[$seri-1][$iterasi-1]. ".jpg";
+        $root = "/emotional/". $positif .$pict[$seri-1][$iterasi-1]. ".jpg";
 
-        return view('pages/tester/controlAST/main/emotional', ['seri'=>$seri, 'iterasi'=>$iterasi, 'pict'=>$root, 'picts'=>$picts]);
+        return view('pages/tester/controlAST/main/emotional', ['seri'=>$seri, 'iterasi'=>$iterasi, 'pict'=>$root, 'picts'=>$picts, 'type'=>$type]);
     }
     
    public function instruksi(){
