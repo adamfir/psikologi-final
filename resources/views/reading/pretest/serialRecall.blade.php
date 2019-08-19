@@ -61,8 +61,8 @@
         <div style="text-align:center">
             <div class="animateTanda">
                 <h1><b>???</b></h1>
-                <p>Isi tanpa harus berurutan</p>
-                <p>(Free Recall)</p>
+                <p>Isi dengan berurutan</p>
+                <p>(Serial Recall)</p>
             </div>
             <div class="animateInput">
                 <form action="{{route($next,$nextParam)}}" method="post">
@@ -113,32 +113,6 @@
     function getTime(){
         var secondsLabel = document.getElementById("time").innerHTML;
         document.getElementById("inputTime").value = secondsLabel;
-        // alert(secondsLabel);
     }
-    // function startTimer(duration, display) {
-    //     var timer = duration, minutes, seconds;
-    //     var submit = document.getElementById('submitButton');
-    //     setInterval(function () {
-    //         minutes = parseInt(timer / 60, 10)
-    //         seconds = parseInt(timer % 60, 10);
-
-    //         minutes = minutes < 10 ? "0" + minutes : minutes;
-    //         seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    //         display.textContent = minutes + ":" + seconds;
-
-    //         if (--timer < 0) {
-    //             timer = 0;
-    //             submit.click();
-    //         }
-    //     }, 1000);
-    // }
-
-    // window.onload = function () {
-    //     var jumlahKata = 3,
-    //         time = 3 + 5*jumlahKata,
-    //         display = document.querySelector('#time');
-    //     startTimer(time, display);
-    // };
 </script>
 @endsection

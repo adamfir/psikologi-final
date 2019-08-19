@@ -195,15 +195,13 @@ class ReadingMainController extends Controller
         $benar = $salah = 0;
         for ($i=0; $i < count($kunciJawaban); $i++) { 
             if($kunciJawaban[$i] == $jawabanUser[$i]){
-                $benar+=1;
+                $benar=1;
             }
             else{
-                $salah+=1;
+                $benar = 0;
+                $salah = 1;
+                break;
             }
-        }
-        $hasil = 0;
-        if($benar == count($kunciJawaban)){
-            $hasil = 1;
         }
         // Simpan ke DB
         $db = new Recall([
@@ -212,8 +210,8 @@ class ReadingMainController extends Controller
             'time'=>$waktu,
             'seri'=>$this->seri[$seri]+1,
             'iterasi'=>$iterasi+1,
-            'true_answer'=>$hasil, // karena serial harus benar semua, jadi nilai benar dan salah hanya 0 atau 1
-            'false_answer'=>1-$hasil,
+            'true_answer'=>$benar, // karena serial harus benar semua, jadi nilai benar dan salah hanya 0 atau 1
+            'false_answer'=>$salah,
             'type'=>'serial'
         ]);
         $db->save();

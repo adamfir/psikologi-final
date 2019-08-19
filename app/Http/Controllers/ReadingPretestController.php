@@ -118,7 +118,61 @@ class ReadingPretestController extends Controller
             'type'=>'free'
         ]);
         $db->save();
-        // next route
+        return redirect()->route('reading.pretest.serial.recall',compact('seri','iterasi'));
+        // next route  // pindah ke serial recall
+        // $iterasi+=1;
+        // if($iterasi>1){
+        //     $seri+=1;
+        //     $iterasi=0;
+        // }
+        // if($seri<5)
+        //     return redirect('reading/pretest/fokus/seri/'.$seri.'/iterasi/'.$iterasi);
+        // else{
+        //     return redirect('reading/main/');
+        //     // dd("Redirect ke next tes");
+        // }
+
+    }
+    public function serialRecall($seri,$iterasi){
+        // $seri = $this->seri[$iterasi]+3;
+        $next = 'reading.pretest.serial.recall.post';
+        $nextParam = ['seri'=>$seri,'iterasi'=>$iterasi];
+        $jumlahKata = $this->seri[$seri]+3;
+        return view('reading.pretest.serialRecall', compact('jumlahKata','next','nextParam'));
+    }
+    public function postSerialRecall(Request $req, $seri, $iterasi){
+        $jawabanUser = $req->kata;
+        $jawabanUser = array_map('strtolower',$jawabanUser);
+        $kunciJawaban = $this->arrayKata[$this->seri[$seri]][$iterasi];
+        $kunciJawaban = array_map('strtolower',$kunciJawaban);
+        $waktu = (int) $req->waktu;
+        $benar = 0;
+        $salah = 0;
+        // cek berapa kata yang benar
+        for ($i=0; $i < count($kunciJawaban); $i++) {
+            if(strtolower($kunciJawaban[$i])==strtolower($jawabanUser[$i])){
+                $benar = 1;
+            }
+            else{
+                $benar = 0;
+                $salah = 1;
+                break;
+            }
+        }
+        // dd($benar,$salah,$kunciJawaban);
+        // DONE: Save ke DB
+        $db = new Recall([
+            'user_id' => Auth::user()->id,
+            'test_category'=>'pre',
+            'time'=>$waktu,
+            'seri'=>$this->seri[$seri]+1,
+            'iterasi'=>$iterasi+1,
+            'true_answer'=>$benar,
+            'false_answer'=>$salah,
+            'type'=>'serial'
+        ]);
+        $db->save();
+        // next route  // pindah ke serial recall
         $iterasi+=1;
         if($iterasi>1){
             $seri+=1;
@@ -130,5 +184,6 @@ class ReadingPretestController extends Controller
             return redirect('reading/main/');
             // dd("Redirect ke next tes");
         }
+
     }
 }

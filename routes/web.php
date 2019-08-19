@@ -43,6 +43,8 @@ Route::prefix('/reading')->name('reading.')->group(function(){
         Route::post('/pernyataan/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@postPernyataan')->name('postPernyataan');
         Route::get('/recall/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@recall')->name('recall');
         Route::post('/postRecall/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@postRecall')->name('postRecall');
+        Route::get('/serial-recall/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@serialRecall')->name('serial.recall');
+        Route::post('/post-serial-recall/seri/{seri}/iterasi/{iterasi}', 'ReadingPretestController@postSerialRecall')->name('serial.recall.post');
     });
     Route::prefix('/main')->name('main.')->group(function(){
         Route::get('/', 'ReadingMainController@index')->name('index');
