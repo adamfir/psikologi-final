@@ -68,5 +68,7 @@ Route::prefix('/reading')->name('reading.')->group(function(){
         Route::post('/pernyataan', 'ReadingPostestController@jawabPernyataan')->name('pernyataan.jawab');
         Route::get('/recall', 'ReadingPostestController@freeRecall')->name('recall');
         Route::post('/recall', 'ReadingPostestController@postFreeRecall')->name('recall.post');
+        Route::get('/serial-recall', 'ReadingPostestController@serialRecall')->name('serial.recall');
+        Route::post('/serial-recall', 'ReadingPostestController@postSerialRecall')->name('serial.recall.post');
     });
 });

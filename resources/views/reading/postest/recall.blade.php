@@ -61,6 +61,8 @@
         <div style="text-align:center">
             <div class="animateTanda">
                 <h1><b>???</b></h1>
+                <p>Isi tanpa harus berurutan</p>
+                <p>(Free Recall)</p>
             </div>
             <div class="animateInput">
                 <form action="{{route('reading.postest.recall.post')}}" method="post">

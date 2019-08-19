@@ -127,6 +127,50 @@ class ReadingPostestController extends Controller
             'type'=>'free'
         ]);
         $db->save();
+        return redirect()->route('reading.postest.serial.recall');
+    }
+    public function serialRecall(){
+        $seri = $this->seri[Session::get('seriPost')]+2;
+        $jumlahKata = $seri+1;
+        // dd($jumlahKata);
+        // $iterasi = Session::get('iterasiPost');
+        return view('reading.postest.serialRecall',compact('jumlahKata'));
+    }
+    public function postSerialRecall(Request $request){
+        $seri = Session::get('seriPost');
+        $iterasi = Session::get('iterasiPost');
+        $jawabanUser = $request->kata;
+        $jawabanUser = array_map('strtolower',$jawabanUser);
+        $kunciJawaban = $this->arrayKata[$this->seri[$seri]][$iterasi];
+        $kunciJawaban = array_map('strtolower',$kunciJawaban);
+        $waktu = (int) $request->waktu;
+        $benar = $salah = 0;
+        // cek berapa kata yang benar
+        for ($i=0; $i < count($kunciJawaban); $i++) {
+            if(strtolower($kunciJawaban[$i]) == strtolower($jawabanUser[$i])){
+                $benar = 1;
+            }
+            else{
+                $salah = 1;
+                $benar = 0;
+                break;
+            }
+        }
+        // dd($benar,$salah);
+        // TODO: Save ke DB, jangan lupa seri dan iterasinya yang sesungguhnya
+        $db = new Recall([
+            'user_id' => Auth::user()->id,
+            'test_category'=>'post',
+            'time'=>$waktu,
+            'seri'=>$this->seri[$seri]+1,
+            'iterasi'=>$iterasi+1,
+            'true_answer'=>$benar,
+            'false_answer'=>$salah,
+            'type'=>'serial'
+        ]);
+        $db->save();
+        // return redirect()->route('reading.postest.serial.recall');
+        // route untuk next iterasi
         $iterasi += 1;
         if($iterasi>1){
             $seri+=1;
