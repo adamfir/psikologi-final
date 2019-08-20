@@ -182,7 +182,7 @@ class ReadingPostestController extends Controller
             Session::put('iterasiPost',$iterasi);
         }
         else{
-            return redirect('http://103.129.222.172/tester/latihan/instruksi');
+            return redirect()->route('tester.latihan.instruksi');
             dd("test selesai. Lanjut ke ryan");
         }
         return view('reading.postest.focus',compact('kata','next'));
