@@ -12,7 +12,11 @@ use Illuminate\Http\Request;
 class ArraySpanTaskIntroController extends Controller
 {
     //
-    //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index($seri, $iterasi){
 
         return view('pages/tester/intro/ArraySpanTask', compact('iterasi', 'seri'));
