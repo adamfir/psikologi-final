@@ -1,3 +1,4 @@
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,10 +37,32 @@
     <div class=centered >
         <div class="slideshow-container">
         <!-- Full-width images with number and caption text -->
+        <div class="mySlides ">
+                <center>
+                  <h1 class="title" >Pre Test</h1> 
+                </center>
+            </div>
             <div class="mySlides ">
-                <h1 style="text-align:justify">Selamat datang di uji psikologi dan kemampuan memori.</h1> <br> <br>
-                <h1 >Silahkan klik tombol di bawah ini untuk memulai</h1> <br><br>
-                <button onClick="clickButton()" class="button3">Mulai</button>
+                  <h1 style="text-align:justify">Perhatikan kemunculan blok pada layar monitor, yang akan disajikan sekali secara singkat tanpa pengulangan.</h1> <Br><Br>
+                  <h1 style="text-align:justify">Cobalah untuk mengingat urutan blok yang disajikan</h1> <Br><Br>
+                  <h1 style="text-align:justify">Setelah kata benda disajikan, akan ada soal matematika sederhana</h1> <Br><Br>
+            </div>
+
+            <div class="mySlides ">
+                <h1 class="textQuest">Selanjutnya : </h1> <br> <br>
+                <h2 style="text-align:justify" >Anda akan diminta untuk menjawab pertanyaan, apakah persamaan matematika sederhana itu benar atau salahfakta. </h2> <br><br>
+                <h2 style="text-align:justify">Jika persamaan tersebut benar, maka Anda klik huruf B di bawah kalimat pertanyaan. </h2> <br><br>
+                <h2 style="text-align:justify">Jika persamaan tersebut salah, maka Anda klik huruf S di bawah kalimat pertanyaan. </h2> <br><br>
+            </div>
+
+            <div class="mySlides ">
+                <h1 class="textQuest">Lalu : </h1> <br> <br>
+                <h2 style="text-align:justify">Anda diminta untuk tapping dengan meng-klik blok sesuai urutan dengan <b> Tepat secara serial forward (maju) dan backward (mundur) </b> setelah Anda menjawab soal matematika</h2> <br><br>
+            </div>
+            <div class="mySlides ">
+                <h1 style="text-align:justify">Apakah instruksi ini sudah cukup jelas dan dapat dipahami? Jika ada hal yang kurang jelas, silakan bertanya kepada peneliti.</h1> <br> <br>
+                <h1 >Tekan mouse untuk melanjutkan. (dengan menekan tombol mouse, berarti anda telah bersedia untuk menjadi partisipan dalam penelitian ini)</h1> <br><br>
+                <button onClick="clickButton()" class="button3">Lanjutkan</button>
             </div>
         </div>
     </div>
@@ -47,8 +70,33 @@
 
 
 <script>
-function clickButton(){
-  window.location = "/login";
+var slideIndex = 0;
+showSlides();
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none"; 
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1} 
+    slides[slideIndex-1].style.display = "block"; 
+  console.log("satiu")
+  if(slideIndex == 1){
+    setTimeout(showSlides, 5000); // Change image every 2 seconds
+  }
+  else if(slideIndex == 4){
+      // setTimeout(function(){window.location = "/tester/pretest/main/3/1";}, 10000);
+      setTimeout(showSlides, 5000); // Change image every 2 seconds
+  }
+  else if(slideIndex == 5) {
+    
+  }
+  else{
+    setTimeout(showSlides, 10000); // Change image every 2 seconds
+  }
 }
-
+function clickButton(){
+  window.location = "/tester/pretest/focus/3/1";
+}
 </script>
