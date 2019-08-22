@@ -35,20 +35,18 @@
 <body style ="background-color: #d2d6de" > 
     <div class=centered >
         <div class="slideshow-container">
-        <!-- Full-width images with number and caption text -->
-            <div class="mySlides ">
-                <h1 style="text-align:justify">Selamat datang di uji psikologi dan kemampuan memori.</h1> <br> <br>
+                <h1 style="text-align:justify">Selamat datang di uji psikologi dan kemampuan memori</h1> <br>
                 <h1 >Silahkan klik tombol di bawah ini untuk memulai</h1> <br><br>
                 <button onClick="clickButton()" class="button3">Mulai</button>
-            </div>
         </div>
     </div>
 </body>
 
 
 <script>
+
 function clickButton(){
-  window.location = "/login";
+  window.location = "/tester/pretest/focus/3/1";
 }
 
 </script>
