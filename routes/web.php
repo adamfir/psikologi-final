@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('/login');
+    return redirect('/landing');
 });
 
 Route::prefix('tester')->name('tester.')->group(function(){
@@ -166,6 +166,8 @@ Route::prefix('tester')->name('tester.')->group(function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/landing', 'HomeController@landing')->name('landing');
+
 
 // Routing untuk reading span task
 Route::prefix('/reading')->name('reading.')->group(function(){
