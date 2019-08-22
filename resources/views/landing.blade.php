@@ -46,7 +46,7 @@
 <script>
 
 function clickButton(){
-  window.location = "/tester/pretest/focus/3/1";
+  window.location = "/login";
 }
 
 </script>
