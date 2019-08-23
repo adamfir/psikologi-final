@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::prefix('tester')->name('tester.')->group(function(){
-    Route::prefix('latihan')->name('latihan.')->group(function(){
+    Route::prefix('latihan')->name('latihan.')->namespace('NonControl')->group(function(){
         Route::get('/instruksi', 'ArraySpanTaskLatihanController@instruksi')->name('instruksi');
         Route::get('/main/{seri}/{iterasi}', 'ArraySpanTaskLatihanController@index')->name('home');
         Route::get('/question/{seri}/{iterasi}', 'ArraySpanTaskLatihanController@question')->name('question');
