@@ -100,7 +100,7 @@
                     <h1>Latihan selesai</h1>
                     <h1>Memulai tes utama</h1>
                 @else
-                    <h1>Persiapain iterasi selanjutnya ...</h1>
+                    {{-- <h1>Persiapan iterasi selanjutnya ...</h1> --}}
                 @endif
                 {{-- @if ($seri<2 && $iterasi<2)
                     <h1>Latihan iterasi {{$iterasi+1}} selesai.</h1>

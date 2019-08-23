@@ -50,11 +50,13 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center lg-6 md-6 mb-6" style="height:92vh">
-        <div style="text-align:center">
-            <h2>Dalam bagian latihan ini, soal latihan terdiri dari 2 item seri kata. <br> 
-                Seri kata benda akan disajikan sekali saja pada layar monitor tanpa adanya pengulangan.
-                Cobalah untuk mengingat kata benda yang disajikan. </h2> <br>
-            <a href="{{route('reading.latihan.kata.display')}}"><button class="btn btn-primary">LANJUTKAN</button></a>
+        <div style="text-align:left">
+            <h1>Latihan : Mengingat Seri Kata Benda</h1><br>
+            <h2>Dalam bagian latihan ini, akan ditampilkan seri kata benda.</h2><br>
+            <h2>Seri kata hanya disajikan sekali saja pada layar monitor tanpa adanya pengulangan.</h2><br>
+            <h2>Cobalah untuk mengingat kata benda yang disajikan.</h2><br>
+            <h2>Kemudian anda akan diminta untuk menuliskan kembali kata-kata tersebut secara bebas tanpa berurutan (free recall) dan secara berurutan (serial recall)</h2><br>
+            <a href="{{route('reading.latihan.kata.display')}}"><button class="btn btn-primary">MULAI LATIHAN</button></a>
         </div>
     </div>
 </div>
