@@ -35,8 +35,12 @@
 <body style ="background-color: #d2d6de" > 
     <div class=centered >
         <div class="slideshow-container">
-                <h1 style="text-align:justify">Selamat datang di uji psikologi dan kemampuan memori</h1> <br>
-                <h1 >Silahkan klik tombol di bawah ini untuk memulai</h1> <br><br>
+                <h1>Selamat datang Pada Penelitian</h1><br>
+                <h1>EMOSI,WORKING MEMORY, EFFORTFUL CONTROL</h1><br><br>
+                <h2>Terima kasih</h2><br>
+                <h2>Anda bersedia berpartisipasi dalam penelitian</h2><br>
+                <h2>Evi Afifah Hurriyati</h2><br>
+                <h2>Program S3 Psikologi Fakultas Psikologi Universitas Padjadjaran</h2><br>
                 <button onClick="clickButton()" class="button3">Mulai</button>
         </div>
     </div>
