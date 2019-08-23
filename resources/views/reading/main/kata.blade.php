@@ -8,11 +8,12 @@
             0% {
                 opacity: 0;
             }
-
-            45% {
+            25% {
                 opacity: 1;
             }
-
+            75% {
+                opacity: 1;
+            }
             100% {
                 opacity: 0%;
             }

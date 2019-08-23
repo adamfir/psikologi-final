@@ -58,7 +58,7 @@ class IndexController extends Controller
         $seri = $request->session()->get('seriLatihanKata');
         $iterasi = $request->session()->get('iterasiLatihanKata');
         $kunciJawaban = $this->arrayKata[$seri][$iterasi];
-        $jawaban = $request->kata;
+        $jawaban = array_map('strtolower',$request->kata);
         $benar = 0;
         for ($i=0; $i < count($kunciJawaban); $i++) { 
             if(in_array(strtolower($kunciJawaban[$i]),$jawaban)) $benar+=1;
@@ -82,7 +82,7 @@ class IndexController extends Controller
         $benar = 0;
         $next = null;
         for ($i=0; $i < count($kunciJawaban); $i++) { 
-            if($jawaban[$i] == strtolower($kunciJawaban[$i])) $benar+=1;
+            if(strtolower($jawaban[$i]) == strtolower($kunciJawaban[$i])) $benar+=1;
         }
         // $salah = count($kunciJawaban)-$benar;
         if($seri==0){ //seri 3
