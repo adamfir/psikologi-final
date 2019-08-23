@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\NonControl;
+namespace App\Http\Controllers;
 use App\ArraySpanTask;
 use App\User;
 use App\arraySpanTaskAns;
