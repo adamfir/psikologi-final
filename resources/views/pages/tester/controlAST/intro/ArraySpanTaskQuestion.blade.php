@@ -104,7 +104,8 @@
         }
 
         if(seri >1){
-            window.location = "/tester/control/latihan/instruksi"
+            // window.location = "/tester/control/latihan/instruksi"
+            window.location = "/tester/control/pretest/instruksi" 
         }
         else{
             window.location = "/tester/control/intro/question/"+ seri +"/" + iterasi;

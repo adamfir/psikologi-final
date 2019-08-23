@@ -68,7 +68,8 @@
                     }
 
                     if(seri == 8){
-                        window.location = "/tester/control/intro/instruksi";
+                        // window.location = "/tester/control/intro/instruksi";
+                        window.location = "/tester/control/latihan/instruksi";
                     }else{
                         window.location = "/tester/control/pretest/main/"+seri +"/"+iterasi;
                     }

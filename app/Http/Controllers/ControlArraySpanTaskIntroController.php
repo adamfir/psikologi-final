@@ -56,7 +56,7 @@ class ControlArraySpanTaskIntroController extends Controller
     //push db
     arraySpanTaskAns::Create([
         'userId' => $user->id,
-        'test' => "Intro",
+        'test' => "Control-Intro",
         'seri'=> $seri,
         'iterasi'=> $iterasi,
         'question'=> '0',
