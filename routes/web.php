@@ -212,6 +212,7 @@ Route::prefix('/reading')->name('reading.')->group(function(){
     });
     Route::prefix('/postest')->name('postest.')->group(function(){
         Route::get('/', 'ReadingPostestController@index')->name('index');
+        Route::get('/break', 'ReadingPostestController@break')->name('break');
         Route::get('/start', 'ReadingPostestController@start')->name('start');
         Route::get('/kata', 'ReadingPostestController@kata')->name('kata');
         Route::get('/pernyataan', 'ReadingPostestController@pernyataan')->name('pernyataan');

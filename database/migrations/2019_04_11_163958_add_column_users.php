@@ -15,7 +15,7 @@ class AddColumnUsers extends Migration
     {
         //
         Schema::table('users', function($table) {
-            $table->integer('type');
+            // $table->integer('type');
         });
     }
 
@@ -28,7 +28,7 @@ class AddColumnUsers extends Migration
     {
         //
         Schema::table('users', function($table) {
-            $table->dropColumn('type');
+            // $table->dropColumn('type');
         });
     }
 }

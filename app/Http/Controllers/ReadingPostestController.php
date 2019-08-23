@@ -182,9 +182,12 @@ class ReadingPostestController extends Controller
             Session::put('iterasiPost',$iterasi);
         }
         else{
-            return redirect()->route('tester.latihan.instruksi');
+            return redirect()->route('reading.postest.break');
             dd("test selesai. Lanjut ke ryan");
         }
         return view('reading.postest.focus',compact('kata','next'));
+    }
+    public function break(){
+        return view('reading.postest.break');
     }
 }
