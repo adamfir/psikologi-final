@@ -462,7 +462,7 @@
             $('#res_message').hide();
             $('#msg_div').hide();
 
-            window.location.replace("{{ route('tester.perthEmotional.finish') }}");
+            window.location.replace("/reading/latihan");
             },1000);
         }
       });

@@ -18,11 +18,10 @@
         <div>
             <h1>Corsi Block Tapping Task Selesai</h1><br>
             <h3>Terima kasih anda telah menyelesaikan seluruh tes yang ada dalam Corsi Block Tapping Task.</h3><br>
-            <h3>Selanjutnya anda akan mengerjakan Mood Quiz.</h3><br>
-            <h3>Silahkan tekan tombol di bawah bila anda telah siap.</h3><br>
-            <div class="d-flex justify-content-end">
+            <h3>Seluruh Tes telah selesai selesai. Terima kasih telah berpartisipasi</h3><br>
+            <!-- <div class="d-flex justify-content-end">
                 <a href="{{route('tester.moodQuiz.instruksi')}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Mulai Mood Quiz</button></a>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

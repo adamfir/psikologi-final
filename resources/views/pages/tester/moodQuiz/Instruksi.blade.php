@@ -36,6 +36,9 @@
     <div class=centered >
         <div class="slideshow-container">
         <!-- Full-width images with number and caption text -->
+        <div class="mySlides ">
+                <h1 class="title">Mood Quiz </h1>
+            </div>
             <div class="mySlides ">
                 <h1 class="textQuest">Instruksi : </h1> <br> <br>
                   <h1 style="text-align:justify">Berikut adalah kata-kata yang mungkin menggambarkan mood yang Anda rasakan. Mohon tuliskan angka di samping setiap pernyataan untuk mengindikasikan  masing-masing perasaan tersebut Anda rasakan. Skala untuk mood yang biasanya Anda rasakan  dituliskan di sebelah kiri pernyataan, sedangkan skala mood yang  Anda rasakan saat ini dituliskan di sebelah kanan pernyataan.</h1> <Br><Br>
@@ -68,7 +71,10 @@ function showSlides() {
   if (slideIndex > slides.length) {slideIndex = 1} 
   slides[slideIndex-1].style.display = "block"; 
   console.log("satiu")
-  if(slideIndex == 1){
+  if(slideIndex==1){
+    setTimeout(showSlides, 1000);
+  }
+  if(slideIndex==2){
     setTimeout(showSlides, 20000); // Change image every 2 seconds
   }
 }
