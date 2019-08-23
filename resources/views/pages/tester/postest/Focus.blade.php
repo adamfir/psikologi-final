@@ -74,7 +74,7 @@
                     if(seri == 8){
                         //selesai disini
                         // window.location = "/tester/latihan/instruksi";
-                        window.location = "/tester/moodQuiz/instruksi";
+                        window.location = "/tester/postest/break";
                     }else{
                         window.location = "/tester/postest/main/"+seri +"/"+iterasi;
                     }

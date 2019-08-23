@@ -131,4 +131,8 @@ class ArraySpanTaskPostTestController extends Controller
        return view('pages/tester/postest/Instruksi');
 
    }
+
+   public function break(){
+    return view('pages/tester/postest/break');
+}
 }
