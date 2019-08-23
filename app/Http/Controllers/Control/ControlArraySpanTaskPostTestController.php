@@ -11,8 +11,12 @@ use Illuminate\Http\Request;
 
 class ControlArraySpanTaskPostTestController extends Controller
 {
-    //
-    //
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index($seri, $iterasi){
 
         return view('pages/tester/controlAST/postest/ArraySpanTask', compact('iterasi', 'seri'));

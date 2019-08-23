@@ -1,3 +1,4 @@
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -69,10 +70,8 @@
 
 
 <script>
-
 var slideIndex = 0;
 showSlides();
-
 function showSlides() {
   var i;
   var slides = document.getElementsByClassName("mySlides");
@@ -97,9 +96,7 @@ function showSlides() {
     setTimeout(showSlides, 10000); // Change image every 2 seconds
   }
 }
-
 function clickButton(){
   window.location = "/tester/pretest/focus/3/1";
 }
-
 </script>
