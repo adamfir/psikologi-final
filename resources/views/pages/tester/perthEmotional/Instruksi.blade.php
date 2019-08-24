@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{{ csrf_token() }}}"/>
-    <title>Reading Span Sentences</title>
+    <title>Instruksi</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -36,6 +36,9 @@
     <div class=centered >
         <div class="slideshow-container">
         <!-- Full-width images with number and caption text -->
+        <div class="mySlides ">
+                <h1 class="title">Perth Emotional </h1>
+            </div>
             <div class="mySlides ">
                 <h1 class="textQuest">Instruksi : </h1> <br> <br>
                   <h1 style="text-align:justify">Berilah skor untuk setiap pernyataan di bawah ini sesuai  atau tidak sesuai dengan bagaimana Anda  bereaksi  terhadap  peristiwa   emosional yang Anda alami, dengan cara melingkari salah satu jawaban! Skala untuk reaksi Anda pada umumnya (biasanya) terhadap pengalaman emosional di tulis di sebelah kiri pernyataan, sedangkan untuk skala reaksi Anda terhadap pengalaman emosional saat ini dituliskan di sebelah kanan pernyataan. </h1> <Br><Br>
@@ -67,6 +70,10 @@ function showSlides() {
   slides[slideIndex-1].style.display = "block"; 
   console.log("satiu")
   if(slideIndex == 1){
+    setTimeout(showSlides, 1000); // Change image every 2 seconds
+
+  }
+  if(slideIndex == 2){
     setTimeout(showSlides, 20000); // Change image every 2 seconds
   }
 }

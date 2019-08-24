@@ -77,6 +77,8 @@ Route::prefix('tester')->name('tester.')->group(function(){
         Route::get('/focus/{seri}/{iterasi}/{id}/{id1}/{id2}/{detik}', 'ArraySpanTaskPostTestController@focus')->name('focus');
         Route::get('/focus/{seri}/{iterasi}', 'ArraySpanTaskPostTestController@focusBefore')->name('focus');
         Route::get('/score/{seri}/{iterasi}/{id}/{id1}/{id2}/{detik}', 'ArraySpanTaskPostTestController@score')->name('score');
+        Route::get('/break', 'ArraySpanTaskPostTestController@break')->name('break');
+
     });
 
     Route::prefix('moodQuiz')->name('moodQuiz.')->group(function(){
