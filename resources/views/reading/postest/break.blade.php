@@ -21,7 +21,11 @@
             <h3>Selanjutnya anda akan mengerjakan Corsi Block Tapping Task.</h3><br>
             <h3>Silahkan tekan tombol di bawah bila anda telah siap.</h3><br>
             <div class="d-flex justify-content-end">
-                <a href="{{route('tester.intro.instruksi')}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Mulai Corsi Block Tapping Task</button></a>
+            @if(Auth::user()->type == 0)
+            <a href="{{route('tester.intro.instruksi')}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Mulai Corsi Block Tapping Task</button></a>
+            @else
+            <a href="{{route('tester.control.intro.instruksi')}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Mulai Corsi Block Tapping Task</button></a>
+            @endif
             </div>
         </div>
     </div>

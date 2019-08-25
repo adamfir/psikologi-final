@@ -38,7 +38,7 @@
         <!-- Full-width images with number and caption text -->
             <div class="mySlides ">
                 <center>
-                  <h1 class="title" >Latihan</h1> 
+                  <h1 class="title" >Intro</h1> 
                 </center>
             </div>
 
