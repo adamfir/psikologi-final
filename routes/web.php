@@ -95,7 +95,7 @@ Route::prefix('tester')->name('tester.')->group(function(){
         Route::get('/finish', 'PerthEmotionalController@finish')->name('finish');
     });
 
-    Route::prefix('control')->name('control')->group(function(){
+    Route::prefix('control')->name('control.')->group(function(){
         Route::prefix('latihan')->name('latihan.')->group(function(){
             Route::get('/instruksi', 'ControlArraySpanTaskLatihanController@instruksi')->name('instruksi');
             Route::get('/main/{seri}/{iterasi}', 'ControlArraySpanTaskLatihanController@index')->name('home');
