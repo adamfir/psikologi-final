@@ -225,3 +225,7 @@ Route::prefix('/reading')->name('reading.')->group(function(){
         Route::post('/serial-recall', 'ReadingPostestController@postSerialRecall')->name('serial.recall.post');
     });
 });
+Route::prefix('upload')->name('upload.')->group(function(){
+    Route::get('/user', 'UploadController@userIndex')->name('user');
+    Route::post('/user', 'UploadController@userPost')->name('user.post');
+});
