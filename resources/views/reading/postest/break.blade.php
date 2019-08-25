@@ -24,7 +24,7 @@
             @if(Auth::user()->type == 0)
             <a href="{{route('tester.intro.instruksi')}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Mulai Corsi Block Tapping Task</button></a>
             @else
-            <a href="{{route('/tester/control/intro/instruksi')}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Mulai Corsi Block Tapping Task</button></a>
+            <a href="{{route('tester.control.intro.instruksi')}}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block>Mulai Corsi Block Tapping Task</button></a>
             @endif
             </div>
         </div>
