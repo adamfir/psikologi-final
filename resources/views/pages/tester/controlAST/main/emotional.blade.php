@@ -137,7 +137,7 @@ function showSlides() {
       root = "/emotional/Positif/Animal/"
   }
   else if(type == 3){
-      root = "/emotional/Negatif/Animal"
+      root = "/emotional/Negatif/Animal/"
   }
 
   for (i = 0; i < slides.length; i++) {
