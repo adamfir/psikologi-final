@@ -228,4 +228,6 @@ Route::prefix('/reading')->name('reading.')->group(function(){
 Route::prefix('upload')->name('upload.')->group(function(){
     Route::get('/user', 'UploadController@userIndex')->name('user');
     Route::post('/user', 'UploadController@userPost')->name('user.post');
+    Route::get('/iq_result', 'UploadController@iqResultIndex')->name('iq.result');
+    Route::post('/iq_result', 'UploadController@iqResultPost')->name('iq.result.post');
 });
