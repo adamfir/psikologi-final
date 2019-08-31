@@ -231,3 +231,7 @@ Route::prefix('upload')->name('upload.')->group(function(){
     Route::get('/iq_result', 'UploadController@iqResultIndex')->name('iq.result');
     Route::post('/iq_result', 'UploadController@iqResultPost')->name('iq.result.post');
 });
+Route::prefix('result')->name('result.')->group(function(){
+    Route::get('/iq_and_memory', 'IqResultController@index')->name('iq');
+    Route::post('/iq_and_memory', 'IqResultController@search')->name('iq.search');
+});
