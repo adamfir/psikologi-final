@@ -174,6 +174,7 @@ Route::get('/landing', 'HomeController@landing')->name('landing');
 // Routing untuk reading span task
 Route::prefix('/reading')->name('reading.')->group(function(){
     Route::get('/', 'ReadingController@instruksi_pretest')->name('main');
+    Route::get('/result/export', 'ExportController@export')->name('result.export');
     Route::namespace('Latihan')->prefix('/latihan')->name('latihan.')->group(function(){
         Route::get('/', 'IndexController@index')->name('index');
         Route::get('/kata/deskripsi', 'IndexController@deskipsiSeriKata')->name('kata.deskripsi');
