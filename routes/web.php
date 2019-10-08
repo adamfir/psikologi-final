@@ -175,6 +175,7 @@ Route::get('/landing', 'HomeController@landing')->name('landing');
 Route::prefix('/reading')->name('reading.')->group(function(){
     Route::get('/', 'ReadingController@instruksi_pretest')->name('main');
     Route::get('/result/export', 'ExportController@export')->name('result.export');
+    Route::get('/result/export/ryan', 'ExportController@exportRyan')->name('result.export.ryan');
     Route::namespace('Latihan')->prefix('/latihan')->name('latihan.')->group(function(){
         Route::get('/', 'IndexController@index')->name('index');
         Route::get('/kata/deskripsi', 'IndexController@deskipsiSeriKata')->name('kata.deskripsi');
