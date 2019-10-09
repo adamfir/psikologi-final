@@ -73,10 +73,10 @@
                 <br> - Jika tidak sesuai dengan fakta, maka Anda pilih <b>Salah</b> dengan menekan <b>tombol Salah</b> di sebelah kiri kalimat pertanyaan. 
             </p>
             <p>
-                4. Anda diminta untuk menuliskan seri kata dengan <b>Tepat</b> namun tidak harus berurutan, setelah muncul tanda <b>???</b> pertama.
+                4. Anda diminta untuk menuliskan seri kata dengan <b>Tepat</b> namun tidak harus berurutan (FREE RECALL), setelah muncul tanda <b>???</b> pertama.
             </p>
             <p>
-                5. Anda diminta untuk menuliskan seri kata secara berurutan dengan <b>Tepat</b>, setelah muncul tanda <b>???</b> kedua.
+                5. Anda diminta untuk menuliskan seri kata secara berurutan dengan <b>Tepat</b> (SERIAL RECALL), setelah muncul tanda <b>???</b> kedua.
             </p>
             <p>
                 Apakah instruksi ini sudah cukup jelas dan dapat dipahami? Jika ada hal yang kurang jelas, silakan bertanya kepada peneliti.

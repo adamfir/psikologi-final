@@ -61,7 +61,8 @@
         <div style="text-align:center">
             <div class="animateTanda">
                 <h1><b>???</b></h1>
-                <p>Isi dengan harus berurutan</p>
+                <h2>Tuliskan seri kata benda yang Anda ingat secara berurutan</h2>
+                <h2>(SERIAL RECALL)</h2>
             </div>
             <div class="animateInput">
                 <form action="{{route($next,$nextParam)}}" method="post">

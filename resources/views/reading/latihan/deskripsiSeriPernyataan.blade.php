@@ -55,7 +55,7 @@
             <h2>Akan ditampilkan sebuah pernyataan, anda harus memilih apakah pernyataan tersebut benar atau salah.</h2><br>
             <h2>Jika sesuai dengan fakta, maka Anda pilih <b>Benar</b> dengan <b>menekan tombol Benar di sebelah kanan kalimat pertanyaan.</b></h2><br>
             <h2>Jika tidak sesuai dengan fakta, maka Anda pilih <b>Salah</b> dengan <b>menekan tombol Salah di sebelah kiri kalimat pertanyaan.</b></b></h2><br>
-            <a href="{{route('reading.latihan.pernyataan.display')}}"><button class="btn btn-primary">LANJUTKAN</button></a>
+            <a href="{{route('reading.latihan.pernyataan.display')}}"><button class="btn btn-primary">MULAI LATIHAN</button></a>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 @extends('layouts.custom1') 
 @section('title')
-    Pretest
+    Postest
 @endsection
 @section('styles')
     <style>
@@ -8,11 +8,12 @@
             0% {
                 opacity: 0;
             }
-
-            45% {
+            25% {
                 opacity: 1;
             }
-
+            75% {
+                opacity: 1;
+            }
             100% {
                 opacity: 0%;
             }

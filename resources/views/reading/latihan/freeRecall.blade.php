@@ -62,6 +62,7 @@
             <div class="animateTanda">
                 <h1><b>???</b></h1>
                 <h2>Tuliskan seri kata benda yang Anda Ingat</h2>
+                <h2>(FREE RECALL)</h2>
             </div>
             <div class="animateInput">
                 <form action="{{route('reading.latihan.post.kata.free.recall')}}" method="post">

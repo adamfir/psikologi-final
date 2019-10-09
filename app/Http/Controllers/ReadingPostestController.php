@@ -182,9 +182,19 @@ class ReadingPostestController extends Controller
             Session::put('iterasiPost',$iterasi);
         }
         else{
-            return redirect('http://103.129.222.172/tester/latihan/instruksi');
+            return redirect()->route('reading.postest.break');
             dd("test selesai. Lanjut ke ryan");
         }
         return view('reading.postest.focus',compact('kata','next'));
+    }
+    public function break(){
+        Session()->forget('iterasiLatihanKata');
+        Session()->forget('seriLatihanKata');
+        Session()->forget('iterasiLatihanPernyataan');
+        Session()->forget('pernyataanBenar');
+        Session()->forget('pernyataanSalah');
+        Session()->forget('seriPost');
+        Session()->forget('iterasiPost');
+        return view('reading.postest.break');
     }
 }

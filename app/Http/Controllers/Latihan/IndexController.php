@@ -10,15 +10,16 @@ use Symfony\Component\HttpFoundation\Session\Session as SymfonySession;
 class IndexController extends Controller
 {
     public function __construct() {
+        // ubah jadi satu ulangan saja
         $this->arrayKata = [
             [
-                ['Denda','Emosi','Final'],
-                ['Saran','Topik','Buih'],
-                ['Kristal','Listrik','Pegas']
+                ['Denda','Listrik','Meja'],
+                ['Rumah','Sendal','Buih'],
+                ['Kristal','Tabung','Pegas']
             ],
             [
-                ['Kaca', 'Tinta', 'Tabung', 'Meja'],
-                ['Rumah', 'Sendal', 'Kursi', 'Panci'],
+                ['Kaca', 'Tinta', 'Tabung', 'Final'],
+                ['Saran', 'Sendal', 'Kursi', 'Panci'],
                 ['Tali', 'Telur', 'Tembok', 'Topi']
             ]
         ];
@@ -57,7 +58,7 @@ class IndexController extends Controller
         $seri = $request->session()->get('seriLatihanKata');
         $iterasi = $request->session()->get('iterasiLatihanKata');
         $kunciJawaban = $this->arrayKata[$seri][$iterasi];
-        $jawaban = $request->kata;
+        $jawaban = array_map('strtolower',$request->kata);
         $benar = 0;
         for ($i=0; $i < count($kunciJawaban); $i++) { 
             if(in_array(strtolower($kunciJawaban[$i]),$jawaban)) $benar+=1;
@@ -81,7 +82,7 @@ class IndexController extends Controller
         $benar = 0;
         $next = null;
         for ($i=0; $i < count($kunciJawaban); $i++) { 
-            if($jawaban[$i] == strtolower($kunciJawaban[$i])) $benar+=1;
+            if(strtolower($jawaban[$i]) == strtolower($kunciJawaban[$i])) $benar+=1;
         }
         // $salah = count($kunciJawaban)-$benar;
         if($seri==0){ //seri 3
@@ -95,14 +96,15 @@ class IndexController extends Controller
             Session::put('iterasiLatihanKata',$iterasi+1);
             $next = 'reading.latihan.kata.display';
         }else{
-            if($seri<1){
-                $request->session()->put('iterasiLatihanKata',0);
-                $request->session()->put('seriLatihanKata',$seri+1);
-                $next = 'reading.latihan.kata.display';
-            }
-            else{
-                $next = 'reading.latihan.kata.result';
-            }
+            // if($seri<1){
+            //     $request->session()->put('iterasiLatihanKata',0);
+            //     $request->session()->put('seriLatihanKata',$seri+1);
+            //     $next = 'reading.latihan.kata.display';
+            // }
+            // else{
+            //     $next = 'reading.latihan.kata.result';
+            // }
+            $next = 'reading.latihan.kata.result';
         }
         // dd(session('iterasiLatihanKata'));
         return view('reading.latihan.focus',compact('next'));
@@ -145,7 +147,7 @@ class IndexController extends Controller
         }
         Session::put('pernyataanBenar',$totalBenar);
         Session::put('pernyataanSalah',$totalSalah);
-        if($iterasi<4){
+        if($iterasi<2){
             Session::put('iterasiLatihanPernyataan',$iterasi+1);
             $next = 'reading.latihan.pernyataan.display';
             return view('reading.latihan.focus',compact('next'));

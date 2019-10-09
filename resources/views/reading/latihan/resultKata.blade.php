@@ -53,38 +53,38 @@
         <div style="text-align:center">
             <div class="row">
                 <div class="col-md-6">
-                    <h4>Skor Free Recall</h4>
+                    <h4>Hasil Free Recall</h4>
                     <table class="table">
                         <thead>
                             <th scope="col">Iterasi</th>
                             <th scope="col">Seri 3</th>
-                            <th scope="col">Seri 4</th>
+                            {{-- <th scope="col">Seri 4</th> --}}
                         </thead>
                         <tbody>
                             @for ($seri3 = session('hasilFreeRecall3'), $seri4 = session('hasilFreeRecall4'), $i=0; $i < 3; $i++)
                                 <tr>
                                     <th scope="row">{{$i+1}}</th>
-                                    <td>{{$seri3[$i]}}</td>
-                                    <td>{{$seri4[$i]}}</td>
+                                    <td>{{$seri3[$i]}}/3</td>
+                                    {{-- <td>{{$seri4[$i]}}</td> --}}
                                 </tr>
                             @endfor
                         </tbody>
                     </table>
                 </div>
-                <div class="col-md-6">
-                    <h4>Skor Serial Recall</h4>
+                <div class="col-md-6" style="width:300px">
+                    <h4>Hasil Serial Recall</h4>
                     <table class="table">
                         <thead>
                             <th scope="col">Iterasi</th>
                             <th scope="col">Seri 3</th>
-                            <th scope="col">Seri 4</th>
+                            {{-- <th scope="col">Seri 4</th> --}}
                         </thead>
                         <tbody>
                             @for ($seri3 = session('hasilSerialRecall3'), $seri4 = session('hasilSerialRecall4'), $i=0; $i < 3; $i++)
                                 <tr>
                                     <th scope="row">{{$i+1}}</th>
-                                    <td>{{$seri3[$i]}}</td>
-                                    <td>{{$seri4[$i]}}</td>
+                                    <td>{{$seri3[$i]}}/3</td>
+                                    {{-- <td>{{$seri4[$i]}}</td> --}}
                                 </tr>
                             @endfor
                         </tbody>

@@ -61,8 +61,8 @@
         <div style="text-align:center">
             <div class="animateTanda">
                 <h1><b>???</b></h1>
-                <p>Isi secara berurutan</p>
-                <p>(Serial Recall)</p>
+                <h2>Tuliskan seri kata benda yang Anda ingat secara berurutan</h2>
+                <h2>(SERIAL RECALL)</h2>
             </div>
             <div class="animateInput">
                 <form action="{{route('reading.postest.serial.recall.post')}}" method="post">
